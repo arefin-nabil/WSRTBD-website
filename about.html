@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - WSRTBD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        .navbar-custom {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        .hero-about {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            color: white;
+            text-align: center;
+        }
+        .mission-card {
+            border: none;
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        .mission-card:hover {
+            transform: translateY(-5px);
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #2a5298;
+        }
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="wsrtbd.png" alt="WSRTBD Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rescuers.html">Rescuers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="board.html">Board</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://binarybardbd.com/category/snakes-nature/" target="_blank">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh" target="_blank" class="btn btn-primary btn-sm">Download App</a>
+                    </li>
+                    <li class="nav-item dropdown ms-lg-3">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Account</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="login.html">Rescuer Login</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="signup.html">Rescuer Registration</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-about">
+        <div class="container">
+            <h1 class="display-4 fw-bold">About WSRTBD</h1>
+            <p class="lead">Protecting Wildlife, Saving Lives</p>
+        </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1535083783855-76ae62b2914e?w=600" class="img-fluid rounded shadow" alt="Team">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Who We Are</h2>
+                    <p class="text-muted">Wildlife and Snake Rescue Team Bangladesh (WSRTBD) is the largest snake and wildlife rescue organization in Bangladesh. Founded with a mission to protect both wildlife and communities, we have been serving across all divisions of Bangladesh.</p>
+                    <p class="text-muted">Our team consists of trained and certified rescuers who work 24/7 to respond to emergency calls, rescue snakes and other wildlife from human-habited areas, and safely relocate them to their natural habitats.</p>
+                    <p class="text-muted">We believe in coexistence and work tirelessly to educate communities about wildlife conservation and safe practices when encountering wild animals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION, VISION, VALUES -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Our Mission, Vision & Values</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="mission-card bg-white shadow-sm">
+                        <div class="text-center mb-3">
+                            <i class="bi bi-bullseye text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Our Mission</h4>
+                        <p class="text-muted text-center">To protect wildlife and ensure safe coexistence between humans and animals through rescue, rehabilitation, and community education.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mission-card bg-white shadow-sm">
+                        <div class="text-center mb-3">
+                            <i class="bi bi-eye text-success" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Our Vision</h4>
+                        <p class="text-muted text-center">A Bangladesh where wildlife thrives in harmony with human communities, and every creature is valued and protected.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mission-card bg-white shadow-sm">
+                        <div class="text-center mb-3">
+                            <i class="bi bi-heart text-danger" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Our Values</h4>
+                        <p class="text-muted text-center">Compassion, professionalism, community service, conservation, and dedication to both wildlife welfare and human safety.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR JOURNEY -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Our Journey</h2>
+            <div class="timeline">
+                <div class="row timeline-item">
+                    <div class="col-md-6 text-md-end">
+                        <div class="timeline-content">
+                            <h5 class="text-primary">2015</h5>
+                            <h6 class="fw-bold">Foundation</h6>
+                            <p class="text-muted mb-0">WSRTBD was established by a group of wildlife enthusiasts and conservationists.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row timeline-item">
+                    <div class="col-md-6 offset-md-6">
+                        <div class="timeline-content">
+                            <h5 class="text-primary">2017</h5>
+                            <h6 class="fw-bold">Expansion</h6>
+                            <p class="text-muted mb-0">Extended rescue services to all 64 districts with a network of trained volunteers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row timeline-item">
+                    <div class="col-md-6 text-md-end">
+                        <div class="timeline-content">
+                            <h5 class="text-primary">2020</h5>
+                            <h6 class="fw-bold">Mobile App Launch</h6>
+                            <p class="text-muted mb-0">Launched our mobile app to make rescue requests easier and faster.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row timeline-item">
+                    <div class="col-md-6 offset-md-6">
+                        <div class="timeline-content">
+                            <h5 class="text-primary">2025</h5>
+                            <h6 class="fw-bold">Today</h6>
+                            <p class="text-muted mb-0">Over 500+ certified rescuers and thousands of successful rescue operations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <h2 class="display-4 fw-bold">500+</h2>
+                    <p>Certified Rescuers</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h2 class="display-4 fw-bold">10K+</h2>
+                    <p>Rescues Completed</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h2 class="display-4 fw-bold">64</h2>
+                    <p>Districts Covered</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h2 class="display-4 fw-bold">24/7</h2>
+                    <p>Emergency Service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="bi bi-telephone"></i> Phone: +880 1234 567890</p>
+                    <p><i class="bi bi-envelope"></i> Email: info@snakerescuebd.com</p>
+                    <p><i class="bi bi-geo-alt"></i> Address: Dhaka, Bangladesh</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Follow Us</h5>
+                    <p><a href="#" class="text-light me-3" target="_blank"><i class="bi bi-facebook"></i> Facebook Page</a></p>
+                    <p><a href="#" class="text-light" target="_blank"><i class="bi bi-facebook"></i> Facebook Group</a></p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Get Our App</h5>
+                    <a href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh" class="btn btn-primary mb-2" target="_blank">Download App</a>
+                    <p class="small mt-2">Available on Android now.</p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center small">&copy; 2025 Wildlife and Snake Rescue Team in Bangladesh (WSRTBD). All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
