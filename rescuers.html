@@ -1,314 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Rescuers - WSRTBD</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
     <style>
-        .navbar-custom {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-        }
-        .hero-rescuers {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1582053433239-82e12ceee1b3?w=1200');
-            background-size: cover;
-            background-position: center;
-            padding: 120px 0;
-            color: white;
-            text-align: center;
-        }
-        .search-box {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .rescuer-card {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
-        }
-        .rescuer-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .rescuer-img {
-            height: 250px;
-            object-fit: cover;
-            width: 100%;
-        }
-        .badge-district {
-            background: #2a5298;
-        }
-        .filter-section {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
+       /* Custom Styles */
+      .navbar-custom {
+        background: linear-gradient(135deg, #006400 0%, #005600 100%);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        height: 40px;
+        margin-right: 10px;
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: white !important;
+      }
+      .dropdown-item:active,
+      .dropdown-item:focus {
+        background-color: #b8cfb5 !important;
+        color: inherit !important;
+      }
+
+      .hero-rescuers {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://files.binarybardbd.com/Snakesbd/imgs/non/1_ratsnake1.jpg");
+        background-size: cover;
+        background-position: center;
+        padding: 120px 0;
+        color: white;
+        text-align: center;
+      }
+
+      .search-box {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .table-responsive {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .table thead {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+      }
+
+      .table thead th {
+        text-align: center;
+        border: none;
+        font-weight: 600;
+        padding: 15px;
+      }
+
+      .table tbody tr {
+        transition: background-color 0.3s;
+      }
+
+      .table tbody tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .table td {
+        vertical-align: middle;
+        text-align: center;
+        padding: 15px;
+      }
+
+      .rescuer-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #005600;
+      }
     </style>
-</head>
-<body>
-    <!-- NAVBAR -->
+  </head>
+
+  <body>
+    <!-- HEADER & NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="wsrtbd.png" alt="WSRTBD Logo" height="40">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="rescuers.html">Rescuers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="board.html">Board</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://binarybardbd.com/category/snakes-nature/" target="_blank">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh" target="_blank" class="btn btn-primary btn-sm">Download App</a>
-                    </li>
-                    <li class="nav-item dropdown ms-lg-3">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Account</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="login.html">Rescuer Login</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="signup.html">Rescuer Registration</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <!-- Logo & Brand -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="wsrtbd.png" alt="WSRTBD Logo" />
+          <span class="ms-2">WSRTBD</span>
+        </a>
+
+        <!-- Toggle Button for Mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu Items -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rescuers.html">Rescuers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="board.html">Board</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://binarybardbd.com/category/snakes-nature/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Blog</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <!-- Button in Menu Bar -->
+            <li class="nav-item ms-lg-3">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary btn-sm"
+                >Download App</a
+              >
+            </li>
+
+            <li class="nav-item dropdown ms-lg-3">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-expanded="false"
+                >Account</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal"
+                    href="#"
+                  >
+                    <i class="bi bi-box-arrow-in-right me-1"></i> Rescuer
+                    Login</a
+                  >
+                </li>
+
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="signup.html"
+                    >Rescuer Registration</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
+
 
     <!-- HERO SECTION -->
     <section class="hero-rescuers">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Our Certified Rescuers</h1>
-            <p class="lead mb-4">Heroes Working Around the Clock to Protect Wildlife</p>
-            <div class="search-box">
-                <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" placeholder="Search by name, district or phone...">
-                    <button class="btn btn-primary" type="button"><i class="bi bi-search"></i> Search</button>
-                </div>
-            </div>
+      <div class="container">
+        <h1 class="display-4 fw-bold">আমাদের সার্টিফাইড রেস্কিউয়ারগণ</h1>
+        <p class="lead mb-4">
+          সমগ্র দেশ ব্যাপী আমাদের যেসকল প্রশিক্ষিত ও সার্টিফাইড হিরো গন নিরলস
+          ভাবে প্রাণ ও প্রকৃতির সুরক্ষায় কাজ করে যাচ্ছেন তাদের তালিকা
+        </p>
+        <div class="search-box">
+          <div class="input-group input-group-lg">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search by name, district or phone..."
+            />
+            <button class="btn btn-success" type="button">
+              <i class="bi bi-search"></i> Search
+            </button>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- FILTER SECTION -->
     <section class="py-5">
-        <div class="container">
-            <div class="filter-section">
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <label class="form-label fw-bold">Select Division</label>
-                        <select class="form-select">
-                            <option selected>All Divisions</option>
-                            <option>Dhaka</option>
-                            <option>Chittagong</option>
-                            <option>Rajshahi</option>
-                            <option>Khulna</option>
-                            <option>Barisal</option>
-                            <option>Sylhet</option>
-                            <option>Rangpur</option>
-                            <option>Mymensingh</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label fw-bold">Select District</label>
-                        <select class="form-select">
-                            <option selected>All Districts</option>
-                            <option>Dhaka</option>
-                            <option>Gazipur</option>
-                            <option>Tangail</option>
-                            <option>Mymensingh</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label fw-bold">Experience Level</label>
-                        <select class="form-select">
-                            <option selected>All Levels</option>
-                            <option>Expert (5+ years)</option>
-                            <option>Advanced (3-5 years)</option>
-                            <option>Intermediate (1-3 years)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <!-- RESCUERS TABLE -->
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th></th>
+                <th>নাম</th>
+                <th>ঠিকানা</th>
+                <th>মোবাইল</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mdshahidulislam.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মো: শহীদুল ইসলাম</strong><br /></td>
+                <td>বোদা, পঞ্চগড়</td>
+                <td>01722938276</td>
+              </tr>
 
-            <!-- RESCUERS GRID -->
-            <div class="row g-4">
-                <!-- Rescuer 1 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card rescuer-card shadow-sm">
-                        <img src="https://ui-avatars.com/api/?name=Kamal+Hossain&size=300&background=2a5298&color=fff" class="rescuer-img" alt="Rescuer">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Kamal Hossain</h5>
-                            <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Dhaka</p>
-                            <span class="badge badge-district mb-2">Dhaka Division</span>
-                            <p class="small mb-2"><i class="bi bi-telephone-fill"></i> +880 1711 123456</p>
-                            <p class="small text-muted mb-3">Experience: 6 years</p>
-                            <button class="btn btn-primary btn-sm w-100">Contact Rescuer</button>
-                        </div>
-                    </div>
-                </div>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mdshahjahan.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মো: শাহ্জাহান মিয়া</strong><br /></td>
+                <td>আদিতমারী, লালমনিরহাট</td>
+                <td>01780912825</td>
+              </tr>
 
-                <!-- Rescuer 2 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card rescuer-card shadow-sm">
-                        <img src="https://ui-avatars.com/api/?name=Rahim+Ahmed&size=300&background=28a745&color=fff" class="rescuer-img" alt="Rescuer">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Rahim Ahmed</h5>
-                            <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Chittagong</p>
-                            <span class="badge badge-district mb-2">Chittagong Division</span>
-                            <p class="small mb-2"><i class="bi bi-telephone-fill"></i> +880 1812 234567</p>
-                            <p class="small text-muted mb-3">Experience: 5 years</p>
-                            <button class="btn btn-primary btn-sm w-100">Contact Rescuer</button>
-                        </div>
-                    </div>
-                </div>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/ismailfeni.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মুহাম্মদ ইসমাইল হোসাইন</strong><br /></td>
+                <td>ছাগলনাইয়া, ফেনী</td>
+                <td>01835915656</td>
+              </tr>
 
-                <!-- Rescuer 3 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card rescuer-card shadow-sm">
-                        <img src="https://ui-avatars.com/api/?name=Jamal+Uddin&size=300&background=dc3545&color=fff" class="rescuer-img" alt="Rescuer">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Jamal Uddin</h5>
-                            <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Rajshahi</p>
-                            <span class="badge badge-district mb-2">Rajshahi Division</span>
-                            <p class="small mb-2"><i class="bi bi-telephone-fill"></i> +880 1913 345678</p>
-                            <p class="small text-muted mb-3">Experience: 4 years</p>
-                            <button class="btn btn-primary btn-sm w-100">Contact Rescuer</button>
-                        </div>
-                    </div>
-                </div>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nahidaljubayer.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>নাহিদ আল জুবায়ের</strong><br /></td>
+                <td>আতাইকুলা, পাবনা</td>
+                <td>01934327171</td>
+              </tr>
 
-                <!-- Rescuer 4 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card rescuer-card shadow-sm">
-                        <img src="https://ui-avatars.com/api/?name=Sumon+Khan&size=300&background=ffc107&color=000" class="rescuer-img" alt="Rescuer">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Sumon Khan</h5>
-                            <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Khulna</p>
-                            <span class="badge badge-district mb-2">Khulna Division</span>
-                            <p class="small mb-2"><i class="bi bi-telephone-fill"></i> +880 1714 456789</p>
-                            <p class="small text-muted mb-3">Experience: 7 years</p>
-                            <button class="btn btn-primary btn-sm w-100">Contact Rescuer</button>
-                        </div>
-                    </div>
-                </div>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nabidaljubayer.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>নাবিদ আল জুবায়ের</strong><br /></td>
+                <td>আতাইকুলা, পাবনা</td>
+                <td>01872678221</td>
+              </tr>
 
-                <!-- Rescuer 5 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card rescuer-card shadow-sm">
-                        <img src="https://ui-avatars.com/api/?name=Tanvir+Islam&size=300&background=17a2b8&color=fff" class="rescuer-img" alt="Rescuer">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Tanvir Islam</h5>
-                            <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Sylhet</p>
-                            <span class="badge badge-district mb-2">Sylhet Division</span>
-                            <p class="small mb-2"><i class="bi bi-telephone-fill"></i> +880 1815 567890</p>
-                            <p class="small text-muted mb-3">Experience: 3 years</p>
-                            <button class="btn btn-primary btn-sm w-100">Contact Rescuer</button>
-                        </div>
-                    </div>
-                </div>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nabil.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>আরেফিন নাবিল</strong><br /></td>
+                <td>শ্রীপুর, গাজীপুর</td>
+                <td>01881196146</td>
+              </tr>
 
-                <!-- Rescuer 6 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card rescuer-card shadow-sm">
-                        <img src="https://ui-avatars.com/api/?name=Fahim+Rahman&size=300&background=6610f2&color=fff" class="rescuer-img" alt="Rescuer">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Fahim Rahman</h5>
-                            <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Barisal</p>
-                            <span class="badge badge-district mb-2">Barisal Division</span>
-                            <p class="small mb-2"><i class="bi bi-telephone-fill"></i> +880 1916 678901</p>
-                            <p class="small text-muted mb-3">Experience: 5 years</p>
-                            <button class="btn btn-primary btn-sm w-100">Contact Rescuer</button>
-                        </div>
-                    </div>
-                </div>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/ahmedshakilrangpur.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>শাকিল খান</strong><br /></td>
+                <td>পীরগাছা, রংপুর</td>
+                <td>01701819051</td>
+              </tr>
 
-                <!-- Rescuer 7 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card rescuer-card shadow-sm">
-                        <img src="https://ui-avatars.com/api/?name=Masud+Rana&size=300&background=fd7e14&color=fff" class="rescuer-img" alt="Rescuer">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Masud Rana</h5>
-                            <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Rangpur</p>
-                            <span class="badge badge-district mb-2">Rangpur Division</span>
-                            <p class="small mb-2"><i class="bi bi-telephone-fill"></i> +880 1717 789012</p>
-                            <p class="small text-muted mb-3">Experience: 4 years</p>
-                            <button class="btn btn-primary btn-sm w-100">Contact Rescuer</button>
-                        </div>
-                    </div>
-                </div>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/naimulislamniloy.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>নাইমুল ইসলাম নিলয়</strong><br /></td>
+                <td>মীরসরাই, চট্টগ্রাম</td>
+                <td>01838693264</td>
+              </tr>
 
-                <!-- Rescuer 8 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card rescuer-card shadow-sm">
-                        <img src="https://ui-avatars.com/api/?name=Shakib+Ali&size=300&background=20c997&color=fff" class="rescuer-img" alt="Rescuer">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Shakib Ali</h5>
-                            <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Mymensingh</p>
-                            <span class="badge badge-district mb-2">Mymensingh Division</span>
-                            <p class="small mb-2"><i class="bi bi-telephone-fill"></i> +880 1818 890123</p>
-                            <p class="small text-muted mb-3">Experience: 6 years</p>
-                            <button class="btn btn-primary btn-sm w-100">Contact Rescuer</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/ferdousalam.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>ফেরদৌস আলম</strong><br /></td>
+                <td>পীরগাছা, রংপুর</td>
+                <td>01733076836</td>
+              </tr>
 
-            <!-- PAGINATION -->
-            <nav class="mt-5">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/ragibhasanrangpur.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>রাগিব হাসান</strong><br /></td>
+                <td>পীরগঞ্জ, রংপুর</td>
+                <td>01748059604</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nafiulislampeyas.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মো: নাফিউল ইসলাম পিয়াস</strong><br /></td>
+                <td>মোহাম্মদপুর, ঢাকা</td>
+                <td>01935664175</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mainuddinmurad.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মইন উদ্দিন মুরাদ</strong><br /></td>
+                <td>মীরসরাই, চট্টগ্রাম</td>
+                <td>01622398990</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/zayedhossaintamim.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>যায়েদ হোসাইন তামীম</strong><br /></td>
+                <td>সদর, নড়াইল</td>
+                <td>01303745718</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/yousufalipanchaghar.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মো: ইউসুফ আলী</strong><br /></td>
+                <td>বোদা, পঞ্চগড়</td>
+                <td>01774231276</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nasibabdullah.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>নাসিব আব্দুল্লাহ</strong><br /></td>
+                <td>রূপগঞ্জ, নারায়নগঞ্জ</td>
+                <td>01797120939</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/dedarulalam.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মোহাম্মদ দিদারুল আলম</strong><br /></td>
+                <td>ভাটারা, ঢাকা</td>
+                <td>01911408361</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/rejaulkarimrakib.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>রেজাউল করিম রাকিব</strong><br /></td>
+                <td>হাটহাজারী, চট্টগ্রাম</td>
+                <td>01891680126</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mahmudulhasanshohel.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মো: মাহমুদুল হাসান সোহেল</strong><br /></td>
+                <td>পীরগাছা, রংপুর</td>
+                <td>01581634649</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nazrulislamfeni.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>নজরুল ইসলাম</strong><br /></td>
+                <td>ফুলগাজী, ফেনী</td>
+                <td>01849410128</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/sjohibbabujshore.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মো: সজীব বাবু</strong><br /></td>
+                <td>চৌগাছা, যশোর</td>
+                <td>01303558072</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/raselalam.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>রাসেল আলম</strong><br /></td>
+                <td>সদর, বাগেরহাট</td>
+                <td>01761484205</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/rifatsarkarrahad.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মো: রিফাত সরকার রাহাদ</strong><br /></td>
+                <td>পীরগঞ্জ, রংপুর</td>
+                <td>01770907904</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mahmudmunna.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>শাহেদ মাহমুদ মুন্না</strong><br /></td>
+                <td>মনোহরগঞ্জ, কুমিল্লা</td>
+                <td>01303889555</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/sabbirkhanjuwel.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>সাব্বির খান জুয়েল</strong><br /></td>
+                <td>কাউখালী, পিরোজপুর</td>
+                <td>01745659547</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/abuhanifa.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>আবু হানিফা</strong><br /></td>
+                <td>ফুলবাড়িয়া, ময়মনসিংহ</td>
+                <td>01849705461</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/farhanislamjashore.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>ফরহান ইসলাম</strong><br /></td>
+                <td>মণিরামপুর, যশোর</td>
+                <td>01741078865</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mahmudulhasanamymnsngh.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মো: মাহমুদুল হাসান</strong><br /></td>
+                <td>ফুলপুর, ময়মনসিংহ</td>
+                <td>01709326505</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/syhammondol.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>শ্যাম মন্ডল</strong><br /></td>
+                <td>নাগেশ্বরী, কুড়িগ্রাম</td>
+                <td>01325762944</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nayimkurigram.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>মো: নাইম ইসলাম</strong><br /></td>
+                <td>উলিপুর, কুড়িগ্রাম</td>
+                <td>01618187229</td>
+              </tr>
+
+              <tr>
+                <td data-label="Photo">
+                  <img
+                    src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/shaibmahmudjihad.jpg"
+                    class="rescuer-img"
+                  />
+                </td>
+                <td><strong>শোয়াইব মোহাম্মদ জিহাদ</strong><br /></td>
+                <td>সাতকানিয়া, চট্টগ্রাম</td>
+                <td>01871737922</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
+        <!-- Stats Section -->
+        <div class="row g-4 mt-4">
+          <div class="col-md-3">
+            <div class="text-center p-3 bg-primary text-white rounded">
+              <h3 class="fw-bold mb-0">120+</h3>
+              <p class="mb-0">Total Rescuers</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="text-center p-3 bg-success text-white rounded">
+              <h3 class="fw-bold mb-0">64</h3>
+              <p class="mb-0">Districts Covered</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="text-center p-3 bg-warning text-white rounded">
+              <h3 class="fw-bold mb-0">24/7</h3>
+              <p class="mb-0">Emergency Service</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="text-center p-3 bg-danger text-white rounded">
+              <h3 class="fw-bold mb-0">1.2K+</h3>
+              <p class="mb-0">Rescues Done</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- BECOME A RESCUER CTA -->
-    <section class="py-5 bg-primary text-white text-center">
-        <div class="container">
-            <h2 class="fw-bold mb-3">Want to Join Our Team?</h2>
-            <p class="lead mb-4">Become a certified wildlife rescuer and make a difference in your community</p>
-            <a href="signup.html" class="btn btn-light btn-lg">Apply Now</a>
-        </div>
+    <section class="py-5 bg-success text-white text-center">
+      <div class="container">
+        <h2 class="fw-bold mb-3">আমাদের টিমে যুক্ত হতে চান?</h2>
+        <p class="lead mb-4">
+          দীর্ঘ মেয়াদী শিক্ষা ও হাতে কলমে প্রশিক্ষিত হয়ে ও সার্টিফাইড সদস্য
+          হিসাবে আপনার এলাকার জীববৈচিত্র রক্ষায় কাজ করতে চাইলে এখনি নিচের বাটনে
+          ক্লিক করুন
+        </p>
+        <a href="signup.html" class="btn btn-light btn-lg">Apply Now</a>
+      </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="bg-dark text-light pt-5 pb-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5>Contact Us</h5>
-                    <p><i class="bi bi-telephone"></i> Phone: +880 1234 567890</p>
-                    <p><i class="bi bi-envelope"></i> Email: info@snakerescuebd.com</p>
-                    <p><i class="bi bi-geo-alt"></i> Address: Dhaka, Bangladesh</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Follow Us</h5>
-                    <p><a href="#" class="text-light me-3" target="_blank"><i class="bi bi-facebook"></i> Facebook Page</a></p>
-                    <p><a href="#" class="text-light" target="_blank"><i class="bi bi-facebook"></i> Facebook Group</a></p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Get Our App</h5>
-                    <a href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh" class="btn btn-primary mb-2" target="_blank">Download App</a>
-                    <p class="small mt-2">Available on Android now.</p>
-                </div>
-            </div>
-            <hr class="bg-light">
-            <div class="text-center small">&copy; 2025 Wildlife and Snake Rescue Team in Bangladesh (WSRTBD). All rights reserved.</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5>Contact Us</h5>
+            <p><i class="bi bi-telephone"></i> Phone: +880 1234 567890</p>
+            <p><i class="bi bi-envelope"></i> Email: info@snakerescuebd.com</p>
+            <p><i class="bi bi-geo-alt"></i> Address: Dhaka, Bangladesh</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>Follow Us</h5>
+            <p>
+              <a href="#" class="text-light me-3" target="_blank"
+                ><i class="bi bi-facebook"></i> Facebook Page</a
+              >
+            </p>
+            <p>
+              <a href="#" class="text-light" target="_blank"
+                ><i class="bi bi-facebook"></i> Facebook Group</a
+              >
+            </p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>Get Our App</h5>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
+              class="btn btn-primary mb-2"
+              target="_blank"
+              >Download App</a
+            >
+            <p class="small mt-2">Available on Android now.</p>
+          </div>
         </div>
+        <hr class="bg-light" />
+        <div class="text-center small">
+          &copy; 2025 Wildlife and Snake Rescue Team in Bangladesh (WSRTBD). All
+          rights reserved.
+        </div>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+
+        <!-- Login Modal -->
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="loginModalLabel">Rescuer Login</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body p-4">
+            <form>
+              <div class="mb-3">
+                <label class="form-label fw-semibold"
+                  >Email or Phone Number</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter email or phone"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Enter password"
+                  required
+                />
+              </div>
+
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="remember"
+                  />
+                  <label class="form-check-label small" for="remember"
+                    >Remember me</label
+                  >
+                </div>
+                <a href="#" class="small text-decoration-none"
+                  >Forgot Password?</a
+                >
+              </div>
+
+              <button type="submit" class="btn btn-success w-100">Login</button>
+
+              <p class="text-center mt-3 small">
+                Don’t have an account?
+                <a href="signup.html" class="fw-semibold text-decoration-none"
+                  >Register Now</a
+                >
+              </p>
+            </form>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </body>
 </html>
