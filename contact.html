@@ -71,6 +71,28 @@
         border-color: #006400;
         box-shadow: 0 0 0 0.2rem rgba(42, 82, 152, 0.25);
       }
+
+            footer {
+        background: #1a1a2e;
+      }
+
+      footer h5 {
+        color: #fff;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      footer a {
+        color: #adb5bd;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      footer a:hover {
+        color: #fff;
+      }
+
+      
     </style>
   </head>
   <body>
@@ -100,7 +122,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
@@ -121,7 +143,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link active" href="contact.html">Contact</a>
             </li>
             <!-- Button in Menu Bar -->
             <li class="nav-item ms-lg-3">
@@ -159,7 +181,7 @@
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a class="dropdown-item" href="signup.html"
-                    >Rescuer Registration</a
+                    ><i class="bi bi-person-plus me-1"></i> Rescuer Registration</a
                   >
                 </li>
               </ul>
@@ -180,18 +202,18 @@
     </section>
 
     <!-- CONTACT INFO CARDS -->
-    <section class="py-5 bg-light">
-      <div class="container">
-        <div class="row g-4">
+    <section class="py-5" style="background-color: #FFFFF0;" > 
+      <div class="container" >
+        <div class="row g-4" >
           <!-- Emergency Hotline -->
-          <div class="col-lg-3 col-md-6">
-            <div class="contact-card shadow-sm text-center">
+          <div class="col-lg-3 col-md-6" >
+            <div class="contact-card shadow-sm text-center" style="background-color: #ffe8e8;">
               <div class="contact-icon bg-danger text-white">
                 <i class="bi bi-telephone-fill"></i>
               </div>
               <h5 class="fw-bold mb-3">Emergency Hotline</h5>
               <p class="text-muted mb-2">24/7 Rescue Service</p>
-              <h6 class="text-danger">+880 1234 567890</h6>
+              <h6 class="text-danger">+880 1722 938276</h6>
               <p class="small text-muted">
                 Call immediately for snake/wildlife emergency
               </p>
@@ -200,20 +222,20 @@
 
           <!-- Email -->
           <div class="col-lg-3 col-md-6">
-            <div class="contact-card shadow-sm text-center">
+            <div class="contact-card shadow-sm text-center" style="background-color: #e1e5ff;">
               <div class="contact-icon bg-primary text-white">
                 <i class="bi bi-envelope-fill"></i>
               </div>
               <h5 class="fw-bold mb-3">Email Us</h5>
               <p class="text-muted mb-2">General Inquiries</p>
-              <h6 class="text-primary">info@wsrtbd.org</h6>
+              <h6 class="text-primary">wsrtbd@gmail.com</h6>
               <p class="small text-muted">Response within 24 hours</p>
             </div>
           </div>
 
           <!-- Office Address -->
           <div class="col-lg-3 col-md-6">
-            <div class="contact-card shadow-sm text-center">
+            <div class="contact-card shadow-sm text-center" style="background-color: #e7ffe7;">
               <div class="contact-icon bg-success text-white">
                 <i class="bi bi-geo-alt-fill"></i>
               </div>
@@ -227,7 +249,7 @@
 
           <!-- Social Media -->
           <div class="col-lg-3 col-md-6">
-            <div class="contact-card shadow-sm text-center">
+            <div class="contact-card shadow-sm text-center" style="background-color: #dffaff;">
               <div class="contact-icon bg-info text-white">
                 <i class="bi bi-share-fill"></i>
               </div>
@@ -250,22 +272,23 @@
       </div>
     </section>
 
-    <!-- CONTACT FORM & MAP -->
-    <section class="py-5">
-      <div class="container">
-        <div class="row g-5">
+    <!-- CONTACT FORM -->
+    <section class="py-5" >
+      <div class="container" >
+        <div class="row justify-content-center g-5" >
           <!-- Contact Form -->
           <div class="col-lg-6">
             <h2 class="fw-bold mb-4">Send Us a Message</h2>
             <form>
               <div class="row g-3">
                 <div class="col-md-6">
-                  <label class="form-label">Full Name *</label>
+                  <label class="form-label" >Full Name *</label>
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Your name"
                     required
+      
                   />
                 </div>
                 <div class="col-md-6">
@@ -275,6 +298,7 @@
                     class="form-control"
                     placeholder="+880 1XXX XXXXXX"
                     required
+  
                   />
                 </div>
                 <div class="col-12">
@@ -375,19 +399,19 @@
         <div class="row">
           <div class="col-md-4 mb-4">
             <h5>Contact Us</h5>
-            <p><i class="bi bi-telephone"></i> Phone: +880 1234 567890</p>
-            <p><i class="bi bi-envelope"></i> Email: info@snakerescuebd.com</p>
+            <p><i class="bi bi-telephone"></i> Phone: +880 1722 938276</p>
+            <p><i class="bi bi-envelope"></i> Email: wsrtbd@gmail.com</p>
             <p><i class="bi bi-geo-alt"></i> Address: Dhaka, Bangladesh</p>
           </div>
           <div class="col-md-4 mb-4">
             <h5>Follow Us</h5>
-            <p>
-              <a href="#" class="text-light me-3" target="_blank"
+               <p>
+              <a href="https://www.facebook.com/wsrtbd" class="text-light me-3" target="_blank"
                 ><i class="bi bi-facebook"></i> Facebook Page</a
               >
             </p>
             <p>
-              <a href="#" class="text-light" target="_blank"
+              <a href="https://www.facebook.com/groups/www.wsrtbd.epizy.co" class="text-light" target="_blank"
                 ><i class="bi bi-facebook"></i> Facebook Group</a
               >
             </p>
