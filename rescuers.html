@@ -12,8 +12,17 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
+    <link
+      href="https://fonts.maateen.me/solaiman-lipi/font.css"
+      rel="stylesheet"
+    />
     <style>
-       /* Custom Styles */
+      /* Custom Styles */
+
+      body {
+        font-family: "SolaimanLipi", sans-serif;
+        padding-top: 66px;
+      }
       .navbar-custom {
         background: linear-gradient(135deg, #006400 0%, #005600 100%);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -90,7 +99,7 @@
         border: 2px solid #005600;
       }
 
-            footer {
+      footer {
         background: #1a1a2e;
       }
 
@@ -109,14 +118,12 @@
       footer a:hover {
         color: #fff;
       }
-
-      
     </style>
   </head>
 
   <body>
     <!-- HEADER & NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container">
         <!-- Logo & Brand -->
         <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -200,7 +207,8 @@
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a class="dropdown-item" href="signup.html"
-                    ><i class="bi bi-person-plus me-1"></i> Rescuer Registration</a
+                    ><i class="bi bi-person-plus me-1"></i> Rescuer
+                    Registration</a
                   >
                 </li>
               </ul>
@@ -209,7 +217,6 @@
         </div>
       </div>
     </nav>
-
 
     <!-- HERO SECTION -->
     <section class="hero-rescuers">
@@ -235,7 +242,7 @@
     </section>
 
     <!-- FILTER SECTION -->
-    <section class="py-5" style="background-color: #F5F5DC;">
+    <section class="py-5" style="background-color: #f5f5dc">
       <div class="container">
         <!-- RESCUERS TABLE -->
         <div class="table-responsive">
@@ -668,12 +675,18 @@
           <div class="col-md-4 mb-4">
             <h5>Follow Us</h5>
             <p>
-              <a href="https://www.facebook.com/wsrtbd" class="text-light me-3" target="_blank"
+              <a
+                href="https://www.facebook.com/wsrtbd"
+                class="text-light me-3"
+                target="_blank"
                 ><i class="bi bi-facebook"></i> Facebook Page</a
               >
             </p>
             <p>
-              <a href="https://www.facebook.com/groups/www.wsrtbd.epizy.co" class="text-light" target="_blank"
+              <a
+                href="https://www.facebook.com/groups/www.wsrtbd.epizy.co"
+                class="text-light"
+                target="_blank"
                 ><i class="bi bi-facebook"></i> Facebook Group</a
               >
             </p>
@@ -699,7 +712,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Login Modal -->
+    <!-- Login Modal -->
     <div
       class="modal fade"
       id="loginModal"
@@ -770,11 +783,8 @@
               </p>
             </form>
           </div>
-
-
         </div>
       </div>
     </div>
-
   </body>
 </html>
