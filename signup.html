@@ -274,42 +274,49 @@
     <div class="signup-container">
       <div class="signup-card">
         <div class="signup-body">
-          <form>
+          <form id="rescuerForm">
             <h2 style="text-align: center">
               <b>WSRTBD Rescuer Registration Form</b>
             </h2>
             <br /><br />
+
             <!-- Personal Information -->
             <h5 class="mb-3 fw-bold text-success">
               <i class="bi bi-person-circle me-2"></i>Personal Information
             </h5>
+
             <div class="row g-3 mb-4">
               <div class="col-md-6">
                 <label class="form-label">Full Name *</label>
                 <input
                   type="text"
                   class="form-control"
+                  name="full_name"
                   placeholder="Enter full name"
                   required
                 />
               </div>
+
               <div class="col-md-6">
                 <label class="form-label">Date of Birth *</label>
-                <input type="date" class="form-control" required />
+                <input type="date" class="form-control" name="dob" required />
               </div>
+
               <div class="col-md-6">
                 <label class="form-label">Gender *</label>
-                <select class="form-select" required>
-                  <option selected>Select gender</option>
+                <select class="form-select" name="gender" required>
+                  <option selected disabled>Select gender</option>
                   <option>Male</option>
                   <option>Female</option>
                 </select>
               </div>
+
               <div class="col-md-6">
                 <label class="form-label">National ID / Passport *</label>
                 <input
                   type="text"
                   class="form-control"
+                  name="national_id"
                   placeholder="Enter ID number"
                   required
                 />
@@ -320,11 +327,12 @@
             <h5 class="mb-3 fw-bold text-success">
               <i class="bi bi-geo-alt-fill me-2"></i>Location Information
             </h5>
+
             <div class="row g-3 mb-4">
               <div class="col-md-6">
                 <label class="form-label">Division *</label>
-                <select class="form-select" required>
-                  <option selected>Select division</option>
+                <select class="form-select" name="division" required>
+                  <option selected disabled>Select division</option>
                   <option>Dhaka</option>
                   <option>Chittagong</option>
                   <option>Rajshahi</option>
@@ -340,6 +348,7 @@
                 <label class="form-label">Full Address *</label>
                 <textarea
                   class="form-control"
+                  name="full_address"
                   rows="2"
                   placeholder="Village/House, Road, Thana"
                   required
@@ -347,35 +356,41 @@
               </div>
             </div>
 
-            <!-- Contact & Account -->
+            <!-- Account Details -->
             <h5 class="mb-3 fw-bold text-success">
               <i class="bi bi-shield-lock-fill me-2"></i>Account Details
             </h5>
+
             <div class="row g-3 mb-4">
               <div class="col-md-6">
                 <label class="form-label">Phone Number *</label>
                 <input
                   type="tel"
                   class="form-control"
+                  name="phone"
                   placeholder="+880 1XXX XXXXXX"
                   required
                 />
               </div>
+
               <div class="col-md-6">
                 <label class="form-label">Email Address *</label>
                 <input
                   type="email"
                   class="form-control"
+                  name="email"
                   placeholder="your@email.com"
                   required
                 />
               </div>
+
               <div class="col-md-6">
                 <label class="form-label">Password *</label>
                 <input
                   type="password"
                   class="form-control"
                   id="password"
+                  name="password"
                   placeholder="Create password"
                   required
                 />
@@ -388,11 +403,13 @@
                   number</small
                 >
               </div>
+
               <div class="col-md-6">
                 <label class="form-label">Confirm Password *</label>
                 <input
                   type="password"
                   class="form-control"
+                  name="confirm_password"
                   placeholder="Confirm password"
                   required
                 />
@@ -403,11 +420,12 @@
             <h5 class="mb-3 fw-bold text-success">
               <i class="bi bi-award-fill me-2"></i>Experience
             </h5>
+
             <div class="row g-3 mb-4">
               <div class="col-md-6">
                 <label class="form-label">Previous Experience *</label>
-                <select class="form-select">
-                  <option selected>Select experience</option>
+                <select class="form-select" name="experience" required>
+                  <option selected disabled>Select experience</option>
                   <option>No experience</option>
                   <option>Less than 1 year</option>
                   <option>1-3 years</option>
@@ -415,18 +433,22 @@
                   <option>5+ years</option>
                 </select>
               </div>
+
               <div class="col-md-6">
                 <label class="form-label">Training Certification</label>
                 <input
                   type="text"
                   class="form-control"
+                  name="certificate_id"
                   placeholder="Certificate ID (if any)"
                 />
               </div>
+
               <div class="col-12">
                 <label class="form-label">Why do you want to join? *</label>
                 <textarea
                   class="form-control"
+                  name="motivation"
                   rows="3"
                   placeholder="Tell us your motivation..."
                   required
@@ -441,6 +463,7 @@
                   class="form-check-input"
                   type="checkbox"
                   id="terms"
+                  name="terms"
                   required
                 />
                 <label class="form-check-label small" for="terms">
@@ -452,11 +475,14 @@
                   <a href="#" class="text-decoration-none">Privacy Policy</a>
                 </label>
               </div>
+
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   id="newsletter"
+                  name="newsletter"
+                  value="1"
                 />
                 <label class="form-check-label small" for="newsletter">
                   Send me updates about training programs and rescue activities
@@ -469,6 +495,7 @@
               <button type="submit" class="btn btn-primary btn-register">
                 <i class="bi bi-check-circle me-2"></i>Complete Registration
               </button>
+
               <div class="text-center mt-3">
                 <p class="mb-0 small text-muted">
                   Already have an account?
@@ -477,25 +504,42 @@
                     data-bs-target="#loginModal"
                     href="#"
                     class="text-decoration-none fw-semibold"
-                    >Login Here</a
                   >
+                    Login Here
+                  </a>
                 </p>
               </div>
             </div>
           </form>
-
-          <!-- <div class="alert alert-info mt-4 mb-0" role="alert">
-            <i class="bi bi-info-circle me-2"></i>
-            <small
-              >After registration, your application will be reviewed by our
-              team. You'll receive training details via email/SMS within 3-5
-              business days.</small
-            >
-          </div> -->
         </div>
       </div>
     </div>
 
+    <!-- Registration SUCCESS MODAL -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4">
+          <h4 class="text-success text-center mb-2">Registration Successful</h4>
+
+          <small>
+            After registration, your application will be reviewed by our team.
+            You'll receive training details via email/SMS within 3-5 business
+            days.
+          </small>
+          <p class="text-center">Thank you for joining WSRTBD!</p>
+          <div class="d-grid gap-2 mt-3">
+            <button
+              class="btn btn-success"
+              onclick="window.location.href='index.html'"
+            >
+              Go to Home
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       // Password strength indicator
@@ -522,6 +566,45 @@
           } else if (strength === 4) {
             strengthBar.className = "password-strength bg-success";
           }
+        });
+
+      // data post to database
+      document
+        .getElementById("rescuerForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // stop normal page reload
+
+          let formData = new FormData(this);
+
+          fetch("save_rescuer.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((r) => r.text())
+            .then((data) => {
+              // Show modal after PHP saves data
+              let modal = new bootstrap.Modal(
+                document.getElementById("successModal")
+              );
+              modal.show();
+            });
+        });
+
+      // Simple login form handler
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // prevent default form submission
+
+          const identifier = document.getElementById("loginIdentifier").value;
+          const password = document.getElementById("loginPassword").value;
+
+          // Redirect to homepage with credentials in URL
+          // (for demo/testing purposes only, no real security)
+          const url = `http://localhost/WSRTBD-Website/index.html?identifier=${encodeURIComponent(
+            identifier
+          )}&password=${encodeURIComponent(password)}`;
+          window.location.href = url;
         });
     </script>
 
@@ -602,13 +685,14 @@
           </div>
 
           <div class="modal-body p-4">
-            <form>
+            <form id="loginForm">
               <div class="mb-3">
                 <label class="form-label fw-semibold"
                   >Email or Phone Number</label
                 >
                 <input
                   type="text"
+                  id="loginIdentifier"
                   class="form-control"
                   placeholder="Enter email or phone"
                   required
@@ -619,6 +703,7 @@
                 <label class="form-label fw-semibold">Password</label>
                 <input
                   type="password"
+                  id="loginPassword"
                   class="form-control"
                   placeholder="Enter password"
                   required
