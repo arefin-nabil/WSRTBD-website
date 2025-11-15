@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+  <?php include 'header.php'; ?>
+  <!DOCTYPE html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Rescuers - WSRTBD</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
     <link
       href="https://fonts.maateen.me/solaiman-lipi/font.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <style>
       /* Custom Styles */
 
@@ -23,6 +22,7 @@
         font-family: "SolaimanLipi", sans-serif;
         padding-top: 66px;
       }
+
       .navbar-custom {
         background: linear-gradient(135deg, #006400 0%, #005600 100%);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -38,6 +38,7 @@
         font-size: 1.5rem;
         color: white !important;
       }
+
       .dropdown-item:active,
       .dropdown-item:focus {
         background-color: #b8cfb5 !important;
@@ -122,110 +123,6 @@
   </head>
 
   <body>
-    <!-- HEADER & NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-      <div class="container">
-        <!-- Logo & Brand -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="wsrtbd.png" alt="WSRTBD Logo" />
-          <span class="ms-2">WSRTBD</span>
-        </a>
-
-        <!-- Toggle Button for Mobile -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Menu Items -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="rescuers.html">Rescuers</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="board.html">Board</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://binarybardbd.com/category/snakes-nature/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <!-- Button in Menu Bar -->
-            <li class="nav-item ms-lg-3">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary btn-sm"
-                >Download App</a
-              >
-            </li>
-
-            <li class="nav-item dropdown ms-lg-3">
-              <a
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-expanded="false"
-                >Account</a
-              >
-              <ul class="dropdown-menu">
-                <li>
-                  <a
-                    class="dropdown-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                    href="#"
-                  >
-                    <i class="bi bi-box-arrow-in-right me-1"></i> Rescuer
-                    Login</a
-                  >
-                </li>
-
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="signup.html"
-                    ><i class="bi bi-person-plus me-1"></i> Rescuer
-                    Registration</a
-                  >
-                </li>
-
-                                
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="admin.html"
-                    ><i class="bi bi-person-badge me-1"></i> Admin Login</a
-                  >
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
     <!-- HERO SECTION -->
     <section class="hero-rescuers">
       <div class="container">
@@ -239,8 +136,7 @@
             <input
               type="text"
               class="form-control"
-              placeholder="Search by name, district or phone..."
-            />
+              placeholder="Search by name, district or phone..." />
             <button class="btn btn-success" type="button">
               <i class="bi bi-search"></i> Search
             </button>
@@ -268,8 +164,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mdshahidulislam.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মো: শহীদুল ইসলাম</strong><br /></td>
                 <td>বোদা, পঞ্চগড়</td>
@@ -280,8 +175,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mdshahjahan.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মো: শাহ্জাহান মিয়া</strong><br /></td>
                 <td>আদিতমারী, লালমনিরহাট</td>
@@ -292,8 +186,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/ismailfeni.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মুহাম্মদ ইসমাইল হোসাইন</strong><br /></td>
                 <td>ছাগলনাইয়া, ফেনী</td>
@@ -304,8 +197,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nahidaljubayer.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>নাহিদ আল জুবায়ের</strong><br /></td>
                 <td>আতাইকুলা, পাবনা</td>
@@ -316,8 +208,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nabidaljubayer.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>নাবিদ আল জুবায়ের</strong><br /></td>
                 <td>আতাইকুলা, পাবনা</td>
@@ -328,8 +219,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nabil.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>আরেফিন নাবিল</strong><br /></td>
                 <td>শ্রীপুর, গাজীপুর</td>
@@ -340,8 +230,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/ahmedshakilrangpur.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>শাকিল খান</strong><br /></td>
                 <td>পীরগাছা, রংপুর</td>
@@ -352,8 +241,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/naimulislamniloy.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>নাইমুল ইসলাম নিলয়</strong><br /></td>
                 <td>মীরসরাই, চট্টগ্রাম</td>
@@ -364,8 +252,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/ferdousalam.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>ফেরদৌস আলম</strong><br /></td>
                 <td>পীরগাছা, রংপুর</td>
@@ -376,8 +263,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/ragibhasanrangpur.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>রাগিব হাসান</strong><br /></td>
                 <td>পীরগঞ্জ, রংপুর</td>
@@ -388,8 +274,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nafiulislampeyas.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মো: নাফিউল ইসলাম পিয়াস</strong><br /></td>
                 <td>মোহাম্মদপুর, ঢাকা</td>
@@ -400,8 +285,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mainuddinmurad.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মইন উদ্দিন মুরাদ</strong><br /></td>
                 <td>মীরসরাই, চট্টগ্রাম</td>
@@ -412,8 +296,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/zayedhossaintamim.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>যায়েদ হোসাইন তামীম</strong><br /></td>
                 <td>সদর, নড়াইল</td>
@@ -424,8 +307,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/yousufalipanchaghar.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মো: ইউসুফ আলী</strong><br /></td>
                 <td>বোদা, পঞ্চগড়</td>
@@ -436,8 +318,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nasibabdullah.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>নাসিব আব্দুল্লাহ</strong><br /></td>
                 <td>রূপগঞ্জ, নারায়নগঞ্জ</td>
@@ -448,8 +329,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/dedarulalam.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মোহাম্মদ দিদারুল আলম</strong><br /></td>
                 <td>ভাটারা, ঢাকা</td>
@@ -460,8 +340,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/rejaulkarimrakib.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>রেজাউল করিম রাকিব</strong><br /></td>
                 <td>হাটহাজারী, চট্টগ্রাম</td>
@@ -472,8 +351,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mahmudulhasanshohel.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মো: মাহমুদুল হাসান সোহেল</strong><br /></td>
                 <td>পীরগাছা, রংপুর</td>
@@ -484,8 +362,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nazrulislamfeni.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>নজরুল ইসলাম</strong><br /></td>
                 <td>ফুলগাজী, ফেনী</td>
@@ -496,8 +373,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/sjohibbabujshore.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মো: সজীব বাবু</strong><br /></td>
                 <td>চৌগাছা, যশোর</td>
@@ -508,8 +384,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/raselalam.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>রাসেল আলম</strong><br /></td>
                 <td>সদর, বাগেরহাট</td>
@@ -520,8 +395,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/rifatsarkarrahad.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মো: রিফাত সরকার রাহাদ</strong><br /></td>
                 <td>পীরগঞ্জ, রংপুর</td>
@@ -532,8 +406,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mahmudmunna.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>শাহেদ মাহমুদ মুন্না</strong><br /></td>
                 <td>মনোহরগঞ্জ, কুমিল্লা</td>
@@ -544,8 +417,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/sabbirkhanjuwel.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>সাব্বির খান জুয়েল</strong><br /></td>
                 <td>কাউখালী, পিরোজপুর</td>
@@ -556,8 +428,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/abuhanifa.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>আবু হানিফা</strong><br /></td>
                 <td>ফুলবাড়িয়া, ময়মনসিংহ</td>
@@ -568,8 +439,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/farhanislamjashore.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>ফরহান ইসলাম</strong><br /></td>
                 <td>মণিরামপুর, যশোর</td>
@@ -580,8 +450,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/mahmudulhasanamymnsngh.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মো: মাহমুদুল হাসান</strong><br /></td>
                 <td>ফুলপুর, ময়মনসিংহ</td>
@@ -592,8 +461,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/syhammondol.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>শ্যাম মন্ডল</strong><br /></td>
                 <td>নাগেশ্বরী, কুড়িগ্রাম</td>
@@ -604,8 +472,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/nayimkurigram.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>মো: নাইম ইসলাম</strong><br /></td>
                 <td>উলিপুর, কুড়িগ্রাম</td>
@@ -616,8 +483,7 @@
                 <td data-label="Photo">
                   <img
                     src="https://files.binarybardbd.com/Snakesbd/imgs/rescuer/shaibmahmudjihad.jpg"
-                    class="rescuer-img"
-                  />
+                    class="rescuer-img" />
                 </td>
                 <td><strong>শোয়াইব মোহাম্মদ জিহাদ</strong><br /></td>
                 <td>সাতকানিয়া, চট্টগ্রাম</td>
@@ -686,17 +552,13 @@
               <a
                 href="https://www.facebook.com/wsrtbd"
                 class="text-light me-3"
-                target="_blank"
-                ><i class="bi bi-facebook"></i> Facebook Page</a
-              >
+                target="_blank"><i class="bi bi-facebook"></i> Facebook Page</a>
             </p>
             <p>
               <a
                 href="https://www.facebook.com/groups/www.wsrtbd.epizy.co"
                 class="text-light"
-                target="_blank"
-                ><i class="bi bi-facebook"></i> Facebook Group</a
-              >
+                target="_blank"><i class="bi bi-facebook"></i> Facebook Group</a>
             </p>
           </div>
           <div class="col-md-4 mb-4">
@@ -704,9 +566,7 @@
             <a
               href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
               class="btn btn-primary mb-2"
-              target="_blank"
-              >Download App</a
-            >
+              target="_blank">Download App</a>
             <p class="small mt-2">Available on Android now.</p>
           </div>
         </div>
@@ -726,8 +586,7 @@
       id="loginModal"
       tabindex="-1"
       aria-labelledby="loginModalLabel"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow">
           <div class="modal-header bg-success text-white">
@@ -735,59 +594,55 @@
             <button
               type="button"
               class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-            ></button>
+              data-bs-dismiss="modal"></button>
           </div>
 
           <div class="modal-body p-4">
-            <form>
+            <!-- UPDATED FORM -->
+            <form id="loginForm" method="POST" action="rescuer_login.php">
               <div class="mb-3">
-                <label class="form-label fw-semibold"
-                  >Email or Phone Number</label
-                >
+                <label class="form-label fw-semibold">Email or Phone Number</label>
                 <input
                   type="text"
+                  id="loginIdentifier"
+                  name="email"
                   class="form-control"
                   placeholder="Enter email or phone"
-                  required
-                />
+                  required />
               </div>
 
               <div class="mb-3">
                 <label class="form-label fw-semibold">Password</label>
                 <input
                   type="password"
+                  id="loginPassword"
+                  name="password"
                   class="form-control"
                   placeholder="Enter password"
-                  required
-                />
+                  required />
               </div>
 
               <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
+                class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-check">
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    id="remember"
-                  />
-                  <label class="form-check-label small" for="remember"
-                    >Remember me</label
-                  >
+                    id="remember" />
+                  <label class="form-check-label small" for="remember">
+                    Remember me
+                  </label>
                 </div>
-                <a href="#" class="small text-decoration-none"
-                  >Forgot Password?</a
-                >
+                <a href="#" class="small text-decoration-none">Forgot Password?</a>
               </div>
 
               <button type="submit" class="btn btn-success w-100">Login</button>
 
               <p class="text-center mt-3 small">
                 Don’t have an account?
-                <a href="signup.html" class="fw-semibold text-decoration-none"
-                  >Register Now</a
-                >
+                <a href="signup.html" class="fw-semibold text-decoration-none">
+                  Register Now
+                </a>
               </p>
             </form>
           </div>
@@ -795,4 +650,5 @@
       </div>
     </div>
   </body>
-</html>
+
+  </html>

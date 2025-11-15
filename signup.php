@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+  <?php include 'header.php'; ?>
+  <!DOCTYPE html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rescuer Registration - WSRTBD</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
     <link
       href="https://fonts.maateen.me/solaiman-lipi/font.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <style>
       /* Custom Styles */
       body {
         font-family: "SolaimanLipi", sans-serif;
         padding-top: 66px;
       }
+
       .navbar-custom {
         background: linear-gradient(135deg, #006400 0%, #005600 100%);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -48,10 +48,12 @@
         min-height: 100vh;
         background-color: #fffdf3;
       }
+
       .signup-container {
         max-width: 700px;
         margin: 0 auto;
       }
+
       .signup-card {
         background: white;
         margin: 20px;
@@ -59,20 +61,24 @@
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         overflow: hidden;
       }
+
       .signup-header {
         background: linear-gradient(135deg, #167923 0%, #158a1b 100%);
         color: white;
         padding: 40px 30px;
         text-align: center;
       }
+
       .signup-body {
         padding: 40px 30px;
       }
+
       .form-control:focus,
       .form-select:focus {
         border-color: #0e640e;
         box-shadow: 0 0 0 0.2rem rgba(42, 82, 152, 0.25);
       }
+
       .btn-register {
         background: linear-gradient(135deg, #005600 0%, #46c446 100%);
         border: none;
@@ -80,6 +86,7 @@
         font-weight: 600;
         transition: transform 0.3s;
       }
+
       .btn-register:hover {
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(102, 234, 131, 0.4);
@@ -89,6 +96,7 @@
         max-width: 700px;
         margin: 0 auto 20px;
       }
+
       .password-strength {
         height: 5px;
         border-radius: 3px;
@@ -117,116 +125,14 @@
       }
     </style>
   </head>
+
   <body>
-    <!-- HEADER & NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-      <div class="container">
-        <!-- Logo & Brand -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="wsrtbd.png" alt="WSRTBD Logo" />
-          <span class="ms-2">WSRTBD</span>
-        </a>
-
-        <!-- Toggle Button for Mobile -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Menu Items -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="rescuers.html">Rescuers</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="board.html">Board</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://binarybardbd.com/category/snakes-nature/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <!-- Button in Menu Bar -->
-            <li class="nav-item ms-lg-3">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary btn-sm"
-                >Download App</a
-              >
-            </li>
-
-            <li class="nav-item dropdown ms-lg-3">
-              <a
-                class="nav-link active dropdown-toggle"
-                data-bs-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-expanded="false"
-                >Account</a
-              >
-              <ul class="dropdown-menu">
-                <li>
-                  <a
-                    class="dropdown-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                    href="#"
-                  >
-                    <i class="bi bi-box-arrow-in-right me-1"></i> Rescuer
-                    Login</a
-                  >
-                </li>
-
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="signup.html">
-                    <i class="bi bi-person-plus me-1"></i> Rescuer
-                    Registration</a
-                  >
-                </li>
-
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="admin.html"
-                    ><i class="bi bi-person-badge me-1"></i> Admin Login</a
-                  >
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
     <div class="container">
       <!-- Terms Card -->
       <div
         class="card shadow-sm mb-5 mx-auto"
-        style="max-width: 700px; margin-top: 20px"
-      >
+        style="max-width: 700px; margin-top: 20px">
         <div class="card-header bg-success text-white">
           <h5 class="mb-0" style="text-align: center">
             রেসকিউয়ার রেজিস্ট্রেশনের শর্তাবলী
@@ -293,8 +199,7 @@
                   class="form-control"
                   name="full_name"
                   placeholder="Enter full name"
-                  required
-                />
+                  required />
               </div>
 
               <div class="col-md-6">
@@ -318,8 +223,7 @@
                   class="form-control"
                   name="national_id"
                   placeholder="Enter ID number"
-                  required
-                />
+                  required />
               </div>
             </div>
 
@@ -351,8 +255,7 @@
                   name="full_address"
                   rows="2"
                   placeholder="Village/House, Road, Thana"
-                  required
-                ></textarea>
+                  required></textarea>
               </div>
             </div>
 
@@ -369,8 +272,7 @@
                   class="form-control"
                   name="phone"
                   placeholder="+880 1XXX XXXXXX"
-                  required
-                />
+                  required />
               </div>
 
               <div class="col-md-6">
@@ -380,8 +282,7 @@
                   class="form-control"
                   name="email"
                   placeholder="your@email.com"
-                  required
-                />
+                  required />
               </div>
 
               <div class="col-md-6">
@@ -392,16 +293,12 @@
                   id="password"
                   name="password"
                   placeholder="Create password"
-                  required
-                />
+                  required />
                 <div
                   class="password-strength bg-secondary"
-                  id="strengthBar"
-                ></div>
-                <small class="text-muted"
-                  >Min 8 characters, include uppercase, lowercase &
-                  number</small
-                >
+                  id="strengthBar"></div>
+                <small class="text-muted">Min 8 characters, include uppercase, lowercase &
+                  number</small>
               </div>
 
               <div class="col-md-6">
@@ -411,8 +308,7 @@
                   class="form-control"
                   name="confirm_password"
                   placeholder="Confirm password"
-                  required
-                />
+                  required />
               </div>
             </div>
 
@@ -440,8 +336,7 @@
                   type="text"
                   class="form-control"
                   name="certificate_id"
-                  placeholder="Certificate ID (if any)"
-                />
+                  placeholder="Certificate ID (if any)" />
               </div>
 
               <div class="col-12">
@@ -451,8 +346,7 @@
                   name="motivation"
                   rows="3"
                   placeholder="Tell us your motivation..."
-                  required
-                ></textarea>
+                  required></textarea>
               </div>
             </div>
 
@@ -464,13 +358,10 @@
                   type="checkbox"
                   id="terms"
                   name="terms"
-                  required
-                />
+                  required />
                 <label class="form-check-label small" for="terms">
                   I agree to the
-                  <a href="#" class="text-decoration-none"
-                    >Terms & Conditions</a
-                  >
+                  <a href="#" class="text-decoration-none">Terms & Conditions</a>
                   and
                   <a href="#" class="text-decoration-none">Privacy Policy</a>
                 </label>
@@ -482,8 +373,7 @@
                   type="checkbox"
                   id="newsletter"
                   name="newsletter"
-                  value="1"
-                />
+                  value="1" />
                 <label class="form-check-label small" for="newsletter">
                   Send me updates about training programs and rescue activities
                 </label>
@@ -503,8 +393,7 @@
                     data-bs-toggle="modal"
                     data-bs-target="#loginModal"
                     href="#"
-                    class="text-decoration-none fw-semibold"
-                  >
+                    class="text-decoration-none fw-semibold">
                     Login Here
                   </a>
                 </p>
@@ -516,24 +405,31 @@
     </div>
 
     <!-- Registration SUCCESS MODAL -->
-    <div class="modal fade" id="successModal" tabindex="-1">
+    <div
+      class="modal fade"
+      id="successModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-4">
-          <h4 class="text-success text-center mb-2">Registration Successful</h4>
+          <div class="modal-body text-center">
+            <h4 class="text-success mb-2">Registration Successful</h4>
 
-          <small>
-            After registration, your application will be reviewed by our team.
-            You'll receive training details via email/SMS within 3-5 business
-            days.
-          </small>
-          <p class="text-center">Thank you for joining WSRTBD!</p>
-          <div class="d-grid gap-2 mt-3">
-            <button
-              class="btn btn-success"
-              onclick="window.location.href='index.html'"
-            >
-              Go to Home
-            </button>
+            <small>
+              Your application will be reviewed by our team. You'll receive
+              details via email within 3–5 business days.
+            </small>
+
+            <p class="mt-3">Thank you for joining WSRTBD!</p>
+
+            <div class="d-grid gap-2 mt-3">
+              <button
+                class="btn btn-success"
+                onclick="window.location.href='index.php'">
+                Go to Home
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -545,7 +441,7 @@
       // Password strength indicator
       document
         .getElementById("password")
-        .addEventListener("input", function () {
+        .addEventListener("input", function() {
           const password = this.value;
           const strengthBar = document.getElementById("strengthBar");
           let strength = 0;
@@ -571,15 +467,15 @@
       // data post to database
       document
         .getElementById("rescuerForm")
-        .addEventListener("submit", function (e) {
+        .addEventListener("submit", function(e) {
           e.preventDefault(); // stop normal page reload
 
           let formData = new FormData(this);
 
-          fetch("save_rescuer.php", {
-            method: "POST",
-            body: formData,
-          })
+          fetch("rescuer_registration.php", {
+              method: "POST",
+              body: formData,
+            })
             .then((r) => r.text())
             .then((data) => {
               // Show modal after PHP saves data
@@ -593,7 +489,7 @@
       // Simple login form handler
       document
         .getElementById("loginForm")
-        .addEventListener("submit", function (e) {
+        .addEventListener("submit", function(e) {
           e.preventDefault(); // prevent default form submission
 
           const identifier = document.getElementById("loginIdentifier").value;
@@ -601,7 +497,7 @@
 
           // Redirect to homepage with credentials in URL
           // (for demo/testing purposes only, no real security)
-          const url = `http://localhost/WSRTBD-Website/index.html?identifier=${encodeURIComponent(
+          const url = `http://localhost/WSRTBD-Website/index.php?identifier=${encodeURIComponent(
             identifier
           )}&password=${encodeURIComponent(password)}`;
           window.location.href = url;
@@ -627,17 +523,13 @@
               <a
                 href="https://www.facebook.com/wsrtbd"
                 class="text-light me-3"
-                target="_blank"
-                ><i class="bi bi-facebook"></i> Facebook Page</a
-              >
+                target="_blank"><i class="bi bi-facebook"></i> Facebook Page</a>
             </p>
             <p>
               <a
                 href="https://www.facebook.com/groups/www.wsrtbd.epizy.co"
                 class="text-light"
-                target="_blank"
-                ><i class="bi bi-facebook"></i> Facebook Group</a
-              >
+                target="_blank"><i class="bi bi-facebook"></i> Facebook Group</a>
             </p>
           </div>
 
@@ -648,9 +540,7 @@
               href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
               class="btn btn-primary mb-2"
               target="_blank"
-              rel="noopener noreferrer"
-              >Download App</a
-            >
+              rel="noopener noreferrer">Download App</a>
             <p class="small mt-2">Available on Android now.</p>
           </div>
         </div>
@@ -671,8 +561,7 @@
       id="loginModal"
       tabindex="-1"
       aria-labelledby="loginModalLabel"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow">
           <div class="modal-header bg-success text-white">
@@ -680,23 +569,21 @@
             <button
               type="button"
               class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-            ></button>
+              data-bs-dismiss="modal"></button>
           </div>
 
           <div class="modal-body p-4">
-            <form id="loginForm">
+            <!-- UPDATED FORM -->
+            <form id="loginForm" method="POST" action="rescuer_login.php">
               <div class="mb-3">
-                <label class="form-label fw-semibold"
-                  >Email or Phone Number</label
-                >
+                <label class="form-label fw-semibold">Email or Phone Number</label>
                 <input
                   type="text"
                   id="loginIdentifier"
+                  name="email"
                   class="form-control"
                   placeholder="Enter email or phone"
-                  required
-                />
+                  required />
               </div>
 
               <div class="mb-3">
@@ -704,37 +591,33 @@
                 <input
                   type="password"
                   id="loginPassword"
+                  name="password"
                   class="form-control"
                   placeholder="Enter password"
-                  required
-                />
+                  required />
               </div>
 
               <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
+                class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-check">
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    id="remember"
-                  />
-                  <label class="form-check-label small" for="remember"
-                    >Remember me</label
-                  >
+                    id="remember" />
+                  <label class="form-check-label small" for="remember">
+                    Remember me
+                  </label>
                 </div>
-                <a href="#" class="small text-decoration-none"
-                  >Forgot Password?</a
-                >
+                <a href="#" class="small text-decoration-none">Forgot Password?</a>
               </div>
 
               <button type="submit" class="btn btn-success w-100">Login</button>
 
               <p class="text-center mt-3 small">
                 Don’t have an account?
-                <a href="signup.html" class="fw-semibold text-decoration-none"
-                  >Register Now</a
-                >
+                <a href="signup.html" class="fw-semibold text-decoration-none">
+                  Register Now
+                </a>
               </p>
             </form>
           </div>
@@ -742,4 +625,5 @@
       </div>
     </div>
   </body>
-</html>
+
+  </html>

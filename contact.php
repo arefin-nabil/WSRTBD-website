@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+  <?php include 'header.php'; ?>
+  <!DOCTYPE html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - WSRTBD</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
     <link
       href="https://fonts.maateen.me/solaiman-lipi/font.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <style>
       /* Custom Styles */
       body {
         font-family: "SolaimanLipi", sans-serif;
         padding-top: 66px;
       }
+
       .navbar-custom {
         background: linear-gradient(135deg, #006400 0%, #005600 100%);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -43,6 +43,7 @@
         background-color: #b8cfb5 !important;
         color: inherit !important;
       }
+
       .hero-contact {
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
           url("https://files.binarybardbd.com/Snakesbd/imgs/venom/6-Bandedkrait1.jpg");
@@ -52,6 +53,7 @@
         color: white;
         text-align: center;
       }
+
       .contact-card {
         border: none;
         border-radius: 15px;
@@ -60,10 +62,12 @@
         transition: transform 0.3s;
         background: white;
       }
+
       .contact-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       }
+
       .contact-icon {
         width: 70px;
         height: 70px;
@@ -74,6 +78,7 @@
         margin: 0 auto 20px;
         font-size: 2rem;
       }
+
       .form-control:focus,
       .form-select:focus {
         border-color: #006400;
@@ -101,111 +106,8 @@
       }
     </style>
   </head>
+
   <body>
-    <!-- HEADER & NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-      <div class="container">
-        <!-- Logo & Brand -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="wsrtbd.png" alt="WSRTBD Logo" />
-          <span class="ms-2">WSRTBD</span>
-        </a>
-
-        <!-- Toggle Button for Mobile -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Menu Items -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="rescuers.html">Rescuers</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="board.html">Board</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://binarybardbd.com/category/snakes-nature/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="contact.html">Contact</a>
-            </li>
-            <!-- Button in Menu Bar -->
-            <li class="nav-item ms-lg-3">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary btn-sm"
-                >Download App</a
-              >
-            </li>
-
-            <li class="nav-item dropdown ms-lg-3">
-              <a
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-expanded="false"
-                >Account</a
-              >
-              <ul class="dropdown-menu">
-                <li>
-                  <a
-                    class="dropdown-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                    href="#"
-                  >
-                    <i class="bi bi-box-arrow-in-right me-1"></i> Rescuer
-                    Login</a
-                  >
-                </li>
-
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="signup.html"
-                    ><i class="bi bi-person-plus me-1"></i> Rescuer
-                    Registration</a
-                  >
-                </li>
-
-                                
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="admin.html"
-                    ><i class="bi bi-person-badge me-1"></i> Admin Login</a
-                  >
-                </li>
-                
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
     <!-- HERO SECTION -->
     <section class="hero-contact">
@@ -225,8 +127,7 @@
           <div class="col-lg-3 col-md-6">
             <div
               class="contact-card shadow-sm text-center"
-              style="background-color: #ffe8e8"
-            >
+              style="background-color: #ffe8e8">
               <div class="contact-icon bg-danger text-white">
                 <i class="bi bi-telephone-fill"></i>
               </div>
@@ -243,8 +144,7 @@
           <div class="col-lg-3 col-md-6">
             <div
               class="contact-card shadow-sm text-center"
-              style="background-color: #e1e5ff"
-            >
+              style="background-color: #e1e5ff">
               <div class="contact-icon bg-primary text-white">
                 <i class="bi bi-envelope-fill"></i>
               </div>
@@ -259,8 +159,7 @@
           <div class="col-lg-3 col-md-6">
             <div
               class="contact-card shadow-sm text-center"
-              style="background-color: #e7ffe7"
-            >
+              style="background-color: #e7ffe7">
               <div class="contact-icon bg-success text-white">
                 <i class="bi bi-geo-alt-fill"></i>
               </div>
@@ -276,23 +175,16 @@
           <div class="col-lg-3 col-md-6">
             <div
               class="contact-card shadow-sm text-center"
-              style="background-color: #dffaff"
-            >
+              style="background-color: #dffaff">
               <div class="contact-icon bg-info text-white">
                 <i class="bi bi-share-fill"></i>
               </div>
               <h5 class="fw-bold mb-3">Follow Us</h5>
               <p class="text-muted mb-3">Stay Connected</p>
               <div class="d-flex justify-content-center gap-3">
-                <a href="#" class="text-primary fs-4"
-                  ><i class="bi bi-facebook"></i
-                ></a>
-                <a href="#" class="text-danger fs-4"
-                  ><i class="bi bi-youtube"></i
-                ></a>
-                <a href="#" class="text-info fs-4"
-                  ><i class="bi bi-twitter"></i
-                ></a>
+                <a href="#" class="text-primary fs-4"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-danger fs-4"><i class="bi bi-youtube"></i></a>
+                <a href="#" class="text-info fs-4"><i class="bi bi-twitter"></i></a>
               </div>
             </div>
           </div>
@@ -315,8 +207,7 @@
                     type="text"
                     class="form-control"
                     placeholder="Your name"
-                    required
-                  />
+                    required />
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Phone Number *</label>
@@ -324,8 +215,7 @@
                     type="tel"
                     class="form-control"
                     placeholder="+880 1XXX XXXXXX"
-                    required
-                  />
+                    required />
                 </div>
                 <div class="col-12">
                   <label class="form-label">Email Address *</label>
@@ -333,8 +223,7 @@
                     type="email"
                     class="form-control"
                     placeholder="your@email.com"
-                    required
-                  />
+                    required />
                 </div>
 
                 <div class="col-md-6">
@@ -355,8 +244,7 @@
                     class="form-control"
                     rows="5"
                     placeholder="Tell us how we can help you..."
-                    required
-                  ></textarea>
+                    required></textarea>
                 </div>
                 <div class="col-12">
                   <div class="form-check">
@@ -364,8 +252,7 @@
                       class="form-check-input"
                       type="checkbox"
                       id="agreeTerms"
-                      required
-                    />
+                      required />
                     <label class="form-check-label small" for="agreeTerms">
                       I agree to the terms and privacy policy
                     </label>
@@ -394,9 +281,7 @@
             <a
               href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
               target="_blank"
-              class="btn btn-light"
-              >Get the App</a
-            >
+              class="btn btn-light">Get the App</a>
           </div>
           <div class="col-md-4">
             <i class="bi bi-people display-4 mb-3"></i>
@@ -411,9 +296,7 @@
             <a
               href="https://binarybardbd.com/category/snakes-nature/"
               target="_blank"
-              class="btn btn-light"
-              >Visit Blog</a
-            >
+              class="btn btn-light">Visit Blog</a>
           </div>
         </div>
       </div>
@@ -435,17 +318,13 @@
               <a
                 href="https://www.facebook.com/wsrtbd"
                 class="text-light me-3"
-                target="_blank"
-                ><i class="bi bi-facebook"></i> Facebook Page</a
-              >
+                target="_blank"><i class="bi bi-facebook"></i> Facebook Page</a>
             </p>
             <p>
               <a
                 href="https://www.facebook.com/groups/www.wsrtbd.epizy.co"
                 class="text-light"
-                target="_blank"
-                ><i class="bi bi-facebook"></i> Facebook Group</a
-              >
+                target="_blank"><i class="bi bi-facebook"></i> Facebook Group</a>
             </p>
           </div>
           <div class="col-md-4 mb-4">
@@ -453,9 +332,7 @@
             <a
               href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
               class="btn btn-success mb-2"
-              target="_blank"
-              >Download App</a
-            >
+              target="_blank">Download App</a>
             <p class="small mt-2">Available on Android now.</p>
           </div>
         </div>
@@ -475,8 +352,7 @@
       id="loginModal"
       tabindex="-1"
       aria-labelledby="loginModalLabel"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow">
           <div class="modal-header bg-success text-white">
@@ -484,59 +360,55 @@
             <button
               type="button"
               class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-            ></button>
+              data-bs-dismiss="modal"></button>
           </div>
 
           <div class="modal-body p-4">
-            <form>
+            <!-- UPDATED FORM -->
+            <form id="loginForm" method="POST" action="rescuer_login.php">
               <div class="mb-3">
-                <label class="form-label fw-semibold"
-                  >Email or Phone Number</label
-                >
+                <label class="form-label fw-semibold">Email or Phone Number</label>
                 <input
                   type="text"
+                  id="loginIdentifier"
+                  name="email"
                   class="form-control"
                   placeholder="Enter email or phone"
-                  required
-                />
+                  required />
               </div>
 
               <div class="mb-3">
                 <label class="form-label fw-semibold">Password</label>
                 <input
                   type="password"
+                  id="loginPassword"
+                  name="password"
                   class="form-control"
                   placeholder="Enter password"
-                  required
-                />
+                  required />
               </div>
 
               <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
+                class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-check">
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    id="remember"
-                  />
-                  <label class="form-check-label small" for="remember"
-                    >Remember me</label
-                  >
+                    id="remember" />
+                  <label class="form-check-label small" for="remember">
+                    Remember me
+                  </label>
                 </div>
-                <a href="#" class="small text-decoration-none"
-                  >Forgot Password?</a
-                >
+                <a href="#" class="small text-decoration-none">Forgot Password?</a>
               </div>
 
               <button type="submit" class="btn btn-success w-100">Login</button>
 
               <p class="text-center mt-3 small">
                 Don’t have an account?
-                <a href="signup.html" class="fw-semibold text-decoration-none"
-                  >Register Now</a
-                >
+                <a href="signup.html" class="fw-semibold text-decoration-none">
+                  Register Now
+                </a>
               </p>
             </form>
           </div>
@@ -544,4 +416,5 @@
       </div>
     </div>
   </body>
-</html>
+
+  </html>

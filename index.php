@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+  <?php include 'header.php'; ?>
+  <!DOCTYPE html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,21 +10,18 @@
     <!-- Bootstrap 5 CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <!-- Bootstrap JS (with Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
     <link
       href="https://fonts.maateen.me/solaiman-lipi/font.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
 
     <style>
       /* Custom Styles */
@@ -206,112 +205,8 @@
       }
     </style>
   </head>
+
   <body>
-    <!-- HEADER & NAVBAR --> 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-      <div class="container">
-        <!-- Logo & Brand -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img src="wsrtbd.png" alt="WSRTBD Logo" />
-          <span class="ms-2">WSRTBD</span>
-        </a>
-
-        <!-- Toggle Button for Mobile -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Menu Items -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="rescuers.html">Rescuers</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="board.html">Board</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://binarybardbd.com/category/snakes-nature/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <!-- Button in Menu Bar -->
-            <li class="nav-item ms-lg-3">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary btn-sm"
-                >Download App</a
-              >
-            </li>
-
-            <li class="nav-item dropdown ms-lg-3">
-              <a
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-expanded="false"
-                >Account</a
-              >
-              <ul class="dropdown-menu">
-                <li>
-                  <a
-                    class="dropdown-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                    href="#"
-                  >
-                    <i class="bi bi-box-arrow-in-right me-1"></i> Rescuer
-                    Login</a
-                  >
-                </li>
-
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="signup.html"
-                    ><i class="bi bi-person-plus me-1"></i> Rescuer
-                    Registration</a
-                  >
-                </li>
-
-                                
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="admin.html"
-                    ><i class="bi bi-person-badge me-1"></i> Admin Login</a
-                  >
-                </li>
-                
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
@@ -322,16 +217,12 @@
           বাংলাদেশের সবচেয়ে বড় সাপ ও বন্যপ্রাণী উদ্ধার সংগঠন হিসেবে আমরা
           প্রতিনিয়ত কাজ করছি মানুষ ও বন্যপ্রাণীর নিরাপদ সহাবস্থানের জন্য।
         </p>
-        <a href="contact.html" class="btn btn-danger btn-lg"
-          >Request for Rescue</a
-        >
+        <a href="contact.html" class="btn btn-danger btn-lg">Request for Rescue</a>
         <a href="rescuers.html" class="btn btn-warning btn-lg">Find Rescuer</a>
         <a
           href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
           target="_blank"
-          class="btn btn-success btn-lg"
-          >Mobile App</a
-        >
+          class="btn btn-success btn-lg">Mobile App</a>
       </div>
     </section>
 
@@ -347,13 +238,11 @@
               data-bs-toggle="collapse"
               data-bs-target="#reptiles"
               aria-expanded="false"
-              style="cursor: pointer; background-color: #e1ffe1"
-            >
+              style="cursor: pointer; background-color: #e1ffe1">
               <img
                 src="https://files.binarybardbd.com/Snakesbd/imgs/non/3_greenratsnake1.jpg"
                 class="card-img-top"
-                alt="Reptiles"
-              />
+                alt="Reptiles" />
               <div class="card-body">
                 <h5 class="card-title fw-semibold">সরীসৃপ</h5>
                 <p class="card-text text-muted">
@@ -380,13 +269,11 @@
               data-bs-toggle="collapse"
               data-bs-target="#birds"
               aria-expanded="false"
-              style="cursor: pointer; background-color: #e0ebff"
-            >
+              style="cursor: pointer; background-color: #e0ebff">
               <img
                 src="https://www.birdlist.org/images/nature_pictures/birds/oriental_magpie_robin.jpg"
                 class="card-img-top"
-                alt="Birds"
-              />
+                alt="Birds" />
               <div class="card-body">
                 <h5 class="card-title fw-semibold">পাখি</h5>
                 <p class="card-text text-muted">
@@ -416,13 +303,11 @@
               data-bs-toggle="collapse"
               data-bs-target="#mammals"
               aria-expanded="false"
-              style="cursor: pointer; background-color: #fff7d8"
-            >
+              style="cursor: pointer; background-color: #fff7d8">
               <img
                 src="https://images.pexels.com/photos/162173/panthera-tigris-altaica-tiger-siberian-amurtiger-162173.jpeg?cs=srgb&dl=pexels-pixabay-162173.jpg&fm=jpg"
                 class="card-img-top"
-                alt="Mammals"
-              />
+                alt="Mammals" />
               <div class="card-body">
                 <h5 class="card-title fw-semibold">স্তন্যপায়ী</h5>
                 <p class="card-text text-muted">
@@ -456,8 +341,7 @@
           <div class="col-md-6 col-lg-3 d-flex">
             <div
               class="service-card flex-fill"
-              style="background-color: #f3e5ab"
-            >
+              style="background-color: #f3e5ab">
               <div class="icon"><i class="bi bi-exclamation-triangle"></i></div>
               <h5>জরুরি উদ্ধার সেবা</h5>
               <p class="text-muted">
@@ -471,8 +355,7 @@
           <div class="col-md-6 col-lg-3 d-flex">
             <div
               class="service-card flex-fill"
-              style="background-color: #e9dcc9"
-            >
+              style="background-color: #e9dcc9">
               <div class="icon"><i class="bi bi-megaphone"></i></div>
               <h5>সচেতনতা কার্যক্রম</h5>
               <p class="text-muted">
@@ -486,8 +369,7 @@
           <div class="col-md-6 col-lg-3 d-flex">
             <div
               class="service-card flex-fill"
-              style="background-color: #f3e5ab"
-            >
+              style="background-color: #f3e5ab">
               <div class="icon"><i class="bi bi-people-fill"></i></div>
               <h5>প্রশিক্ষণ সহায়তা</h5>
               <p class="text-muted">
@@ -501,8 +383,7 @@
           <div class="col-md-6 col-lg-3 d-flex">
             <div
               class="service-card flex-fill"
-              style="background-color: #e9dcc9"
-            >
+              style="background-color: #e9dcc9">
               <div class="icon"><i class="bi bi-heart-fill"></i></div>
               <h5>কমিউনিটি-ভিত্তিক সেবা</h5>
               <p class="text-muted">
@@ -530,8 +411,7 @@
                 data-bs-toggle="collapse"
                 data-bs-target="#faq1"
                 aria-expanded="false"
-                aria-controls="faq1"
-              >
+                aria-controls="faq1">
                 বাড়ির আশেপাশে সাপ দেখলে কী করবো?
               </button>
             </h2>
@@ -539,8 +419,7 @@
               id="faq1"
               class="accordion-collapse collapse"
               aria-labelledby="faqHeading1"
-              data-bs-parent="#faqAccordion"
-            >
+              data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 ভয় পাবেন না, শান্ত থাকুন। সাপটিকে ধরার বা তাড়ানোর চেষ্টা করবেন
                 না। বাচ্চা ও পোষা প্রাণীদের দূরে রাখুন এবং যত দ্রুত সম্ভব আমাদের
@@ -559,8 +438,7 @@
                 data-bs-toggle="collapse"
                 data-bs-target="#faq2"
                 aria-expanded="false"
-                aria-controls="faq2"
-              >
+                aria-controls="faq2">
                 বাংলাদেশের সব সাপই কি বিষধর?
               </button>
             </h2>
@@ -568,8 +446,7 @@
               id="faq2"
               class="accordion-collapse collapse"
               aria-labelledby="faqHeading2"
-              data-bs-parent="#faqAccordion"
-            >
+              data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 না, বেশিরভাগ সাপই বিষহীন ও নিরীহ। কেবল কিছু সাপ যেমন কোবরা বা
                 ক্রেইট বিষধর। সবসময় সকল সাপ থেকে নিরাপদ দূরত্ব বজায় রাখুন এবং
@@ -587,8 +464,7 @@
                 data-bs-toggle="collapse"
                 data-bs-target="#faq3"
                 aria-expanded="false"
-                aria-controls="faq3"
-              >
+                aria-controls="faq3">
                 আমি কি নিজের হাতে সাপ সরাতে পারি?
               </button>
             </h2>
@@ -596,8 +472,7 @@
               id="faq3"
               class="accordion-collapse collapse"
               aria-labelledby="faqHeading3"
-              data-bs-parent="#faqAccordion"
-            >
+              data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 না, একদম না। প্রশিক্ষণ ছাড়া সাপ ধরা খুবই বিপদজনক। সবসময়
                 প্রশিক্ষিত রেসকিউয়ারদের খবর দিন, তাঁরাই নিরাপদভাবে সাপ সরাবেন।
@@ -614,8 +489,7 @@
                 data-bs-toggle="collapse"
                 data-bs-target="#faq4"
                 aria-expanded="false"
-                aria-controls="faq4"
-              >
+                aria-controls="faq4">
                 সাপ যেন বাসায় ঢুকতে না পারে, কী করবো?
               </button>
             </h2>
@@ -623,8 +497,7 @@
               id="faq4"
               class="accordion-collapse collapse"
               aria-labelledby="faqHeading4"
-              data-bs-parent="#faqAccordion"
-            >
+              data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 বাড়ির চারপাশ পরিষ্কার রাখুন, ঘাস বা ঝোপঝাড় বেশি বড় হতে দেবেন না,
                 দেয়াল বা মেঝের ফাঁকফোকর বন্ধ করুন এবং খাবার বা পানির উৎস এমনভাবে
@@ -642,8 +515,7 @@
                 data-bs-toggle="collapse"
                 data-bs-target="#faq5"
                 aria-expanded="false"
-                aria-controls="faq5"
-              >
+                aria-controls="faq5">
                 আপনারা কি জরুরি সাপ রেসকিউ সেবা দেন?
               </button>
             </h2>
@@ -651,8 +523,7 @@
               id="faq5"
               class="accordion-collapse collapse"
               aria-labelledby="faqHeading5"
-              data-bs-parent="#faqAccordion"
-            >
+              data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 হ্যাঁ, আমাদের সার্টিফায়েড সাপ রেসকিউ টিম ২৪ ঘণ্টা কাজ করে। বাসা
                 বা আশেপাশে সাপ দেখলে সঙ্গে সঙ্গে আমাদের হেল্পলাইন (+880 1722
@@ -670,8 +541,7 @@
                 data-bs-toggle="collapse"
                 data-bs-target="#faq6"
                 aria-expanded="false"
-                aria-controls="faq6"
-              >
+                aria-controls="faq6">
                 সাপ রেসকিউ জন্য আপনারা কত টাকা ফি নেন?
               </button>
             </h2>
@@ -679,8 +549,7 @@
               id="faq6"
               class="accordion-collapse collapse"
               aria-labelledby="faqHeading6"
-              data-bs-parent="#faqAccordion"
-            >
+              data-bs-parent="#faqAccordion">
               <div class="accordion-body">
                 না, আমরা সাপ রেসকিউ জন্য কোনো টাকা নেই না। <br />
                 তবে আমাদের অধিকাংশ সার্টিফায়েড সাপ রেসকিউয়ারই বিভিন্ন
@@ -710,17 +579,13 @@
               <a
                 href="https://www.facebook.com/wsrtbd"
                 class="text-light me-3"
-                target="_blank"
-                ><i class="bi bi-facebook"></i> Facebook Page</a
-              >
+                target="_blank"><i class="bi bi-facebook"></i> Facebook Page</a>
             </p>
             <p>
               <a
                 href="https://www.facebook.com/groups/www.wsrtbd.epizy.co"
                 class="text-light"
-                target="_blank"
-                ><i class="bi bi-facebook"></i> Facebook Group</a
-              >
+                target="_blank"><i class="bi bi-facebook"></i> Facebook Group</a>
             </p>
           </div>
           <div class="col-md-4 mb-4">
@@ -728,9 +593,7 @@
             <a
               href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
               class="btn btn-success mb-2"
-              target="_blank"
-              >Download App</a
-            >
+              target="_blank">Download App</a>
             <p class="small mt-2">Available on Android now.</p>
           </div>
         </div>
@@ -748,8 +611,7 @@
       id="loginModal"
       tabindex="-1"
       aria-labelledby="loginModalLabel"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 shadow">
           <div class="modal-header bg-success text-white">
@@ -757,59 +619,55 @@
             <button
               type="button"
               class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-            ></button>
+              data-bs-dismiss="modal"></button>
           </div>
 
           <div class="modal-body p-4">
-            <form>
+            <!-- UPDATED FORM -->
+            <form id="loginForm" method="POST" action="rescuer_login.php">
               <div class="mb-3">
-                <label class="form-label fw-semibold"
-                  >Email or Phone Number</label
-                >
+                <label class="form-label fw-semibold">Email or Phone Number</label>
                 <input
                   type="text"
+                  id="loginIdentifier"
+                  name="email"
                   class="form-control"
                   placeholder="Enter email or phone"
-                  required
-                />
+                  required />
               </div>
 
               <div class="mb-3">
                 <label class="form-label fw-semibold">Password</label>
                 <input
                   type="password"
+                  id="loginPassword"
+                  name="password"
                   class="form-control"
                   placeholder="Enter password"
-                  required
-                />
+                  required />
               </div>
 
               <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
+                class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-check">
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    id="remember"
-                  />
-                  <label class="form-check-label small" for="remember"
-                    >Remember me</label
-                  >
+                    id="remember" />
+                  <label class="form-check-label small" for="remember">
+                    Remember me
+                  </label>
                 </div>
-                <a href="#" class="small text-decoration-none"
-                  >Forgot Password?</a
-                >
+                <a href="#" class="small text-decoration-none">Forgot Password?</a>
               </div>
 
               <button type="submit" class="btn btn-success w-100">Login</button>
 
               <p class="text-center mt-3 small">
                 Don’t have an account?
-                <a href="signup.html" class="fw-semibold text-decoration-none"
-                  >Register Now</a
-                >
+                <a href="signup.html" class="fw-semibold text-decoration-none">
+                  Register Now
+                </a>
               </p>
             </form>
           </div>
@@ -817,4 +675,5 @@
       </div>
     </div>
   </body>
-</html>
+
+  </html>

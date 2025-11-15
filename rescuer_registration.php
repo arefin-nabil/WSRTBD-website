@@ -1,12 +1,10 @@
 <?php
-// Database connection
-$mysqli = new mysqli("localhost", "root", "", "wsrtbd"); // change DB name if needed
+$mysqli = new mysqli("localhost", "root", "", "wsrtbd");
 
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Collect form data
 $full_name     = $_POST['full_name'];
 $dob           = $_POST['dob'];
 $gender        = $_POST['gender'];
@@ -27,13 +25,15 @@ $motivation    = $_POST['motivation'];
 
 $newsletter    = isset($_POST['newsletter']) ? 1 : 0;
 
-// Check password match
+// CHECK PASSWORD MATCH
 if ($password !== $confirm) {
     echo "Password mismatch";
     exit;
 }
 
-// Simple insert (plain password)
+// HASH PASSWORD
+$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
 $stmt = $mysqli->prepare("
     INSERT INTO rescuers 
     (full_name, dob, gender, national_id, division, full_address, phone, email, password,
@@ -51,14 +51,14 @@ $stmt->bind_param(
     $full_address,
     $phone,
     $email,
-    $password,     // plain text
+    $hashed_password,   // stored safely
     $experience,
     $certificate,
     $motivation,
     $newsletter
 );
 
-// Execute and return response
+// EXECUTE
 if ($stmt->execute()) {
     echo "success";
 } else {
@@ -67,4 +67,3 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $mysqli->close();
-?>
