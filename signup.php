@@ -123,6 +123,27 @@
       footer a:hover {
         color: #fff;
       }
+
+      #loginError {
+        background: #ffe3e3;
+        border-left: 5px solid #ff4d4d;
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-weight: 500;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
 
@@ -573,8 +594,12 @@
           </div>
 
           <div class="modal-body p-4">
-            <!-- UPDATED FORM -->
-            <form id="loginForm" method="POST" action="rescuer_login.php">
+
+            <!-- ERROR MESSAGE (Initially hidden) -->
+            <p id="loginError" class="text-danger text-center mb-2" style="display: none;"></p>
+
+            <!-- Login Form -->
+            <form id="loginForm">
               <div class="mb-3">
                 <label class="form-label fw-semibold">Email or Phone Number</label>
                 <input
@@ -597,13 +622,9 @@
                   required />
               </div>
 
-              <div
-                class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="remember" />
+                  <input class="form-check-input" type="checkbox" id="remember" />
                   <label class="form-check-label small" for="remember">
                     Remember me
                   </label>
@@ -624,6 +645,38 @@
         </div>
       </div>
     </div>
+
+    <!-- AJAX LOGIN SCRIPT -->
+    <script>
+      document.getElementById("loginForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch("rescuer_login.php", {
+            method: "POST",
+            body: formData
+          })
+          .then(res => res.text())
+          .then(response => {
+            const errorBox = document.getElementById("loginError");
+            response = response.trim();
+
+            if (response === "success") {
+              window.location.href = "profile.php";
+            } else if (response === "invalid") {
+              errorBox.style.display = "block";
+              errorBox.textContent = "Wrong password!";
+            } else if (response === "not_found") {
+              errorBox.style.display = "block";
+              errorBox.textContent = "Email not found!";
+            } else {
+              errorBox.style.display = "block";
+              errorBox.textContent = "Unexpected error!";
+            }
+          });
+      });
+    </script>
   </body>
 
   </html>

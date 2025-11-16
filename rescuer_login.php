@@ -4,7 +4,7 @@ session_start();
 $mysqli = new mysqli("localhost", "root", "", "wsrtbd");
 
 if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
+    die("Connection failed");
 }
 
 $email    = $_POST['email'];
@@ -21,14 +21,11 @@ if ($result->num_rows === 1) {
 
     if (password_verify($password, $user['password'])) {
 
-        // LOGIN SUCCESS → CREATE SESSION
         $_SESSION['rescuer_id']   = $user['id'];
         $_SESSION['rescuer_name'] = $user['full_name'];
         $_SESSION['rescuer_email'] = $email;
 
-
-        header("Location: profile.php");
-        exit;
+        echo "success";
     } else {
         echo "invalid";
     }
