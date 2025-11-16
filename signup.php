@@ -292,9 +292,13 @@
                   type="tel"
                   class="form-control"
                   name="phone"
-                  placeholder="+880 1XXX XXXXXX"
+                  placeholder="01XXXXXXXXX"
+                  maxlength="11"
+                  pattern="[0-9]{11}"
+                  title="Enter exactly 11 digits"
                   required />
               </div>
+
 
               <div class="col-md-6">
                 <label class="form-label">Email Address *</label>
@@ -357,7 +361,7 @@
                   type="text"
                   class="form-control"
                   name="certificate_id"
-                  placeholder="Certificate ID (if any)" />
+                  placeholder="Certificate / Rescuer ID no. (if any)" />
               </div>
 
               <div class="col-12">
@@ -601,7 +605,7 @@
             <!-- Login Form -->
             <form id="loginForm">
               <div class="mb-3">
-                <label class="form-label fw-semibold">Email or Phone Number</label>
+                <label class="form-label fw-semibold">Email</label>
                 <input
                   type="text"
                   id="loginIdentifier"
@@ -636,7 +640,7 @@
 
               <p class="text-center mt-3 small">
                 Don’t have an account?
-                <a href="signup.html" class="fw-semibold text-decoration-none">
+                <a href="signup.php" class="fw-semibold text-decoration-none">
                   Register Now
                 </a>
               </p>

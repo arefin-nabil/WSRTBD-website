@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,7 +168,7 @@
     <div class="container">
       <h1 class="display-4 fw-bold">আমাদের সার্টিফাইড রেস্কিউয়ারগণ</h1>
       <p class="lead mb-4">
-        সমগ্র দেশ ব্যাপী আমাদের যেসকল প্রশিক্ষিত ও সার্টিফাইড হিরো গন নিরলস
+        সমগ্র দেশ ব্যাপী আমাদের যেসকল প্রশিক্ষিত ও সার্টিফাইড হিরোগন নিরলস
         ভাবে প্রাণ ও প্রকৃতির সুরক্ষায় কাজ করে যাচ্ছেন তাদের তালিকা
       </p>
       <div class="search-box">
@@ -174,7 +177,7 @@
             type="text"
             id="searchInput"
             class="form-control"
-            placeholder="Search by name, district or phone..." />
+            placeholder="নাম, জেলা বা মোবাইল নাম্বার..." />
           <button class="btn btn-success" type="button" id="searchBtn">
             <i class="bi bi-search"></i> Search
           </button>
@@ -219,7 +222,6 @@
       <div class="text-center mt-3">
         <label for="perPageSelect" class="me-2">Show per page:</label>
         <select id="perPageSelect" class="form-select d-inline-block w-auto">
-          <option value="5">5</option>
           <option value="10" selected>10</option>
           <option value="25">25</option>
           <option value="50">50</option>
@@ -248,7 +250,7 @@
         </div>
         <div class="col-md-3">
           <div class="text-center p-3 bg-danger text-white rounded">
-            <h3 class="fw-bold mb-0">1.2K+</h3>
+            <h3 class="fw-bold mb-0" id="totalRescues">0</h3>
             <p class="mb-0">Rescues Done</p>
           </div>
         </div>
@@ -265,7 +267,7 @@
         হিসাবে আপনার এলাকার জীববৈচিত্র রক্ষায় কাজ করতে চাইলে এখনি নিচের বাটনে
         ক্লিক করুন
       </p>
-      <a href="signup.html" class="btn btn-light btn-lg">Apply Now</a>
+      <a href="signup.php" class="btn btn-light btn-lg">Apply Now</a>
     </div>
   </section>
 
@@ -338,7 +340,7 @@
           <!-- Login Form -->
           <form id="loginForm">
             <div class="mb-3">
-              <label class="form-label fw-semibold">Email or Phone Number</label>
+              <label class="form-label fw-semibold">Email</label>
               <input
                 type="text"
                 id="loginIdentifier"
@@ -373,7 +375,7 @@
 
             <p class="text-center mt-3 small">
               Don't have an account?
-              <a href="signup.html" class="fw-semibold text-decoration-none">
+              <a href="signup.php" class="fw-semibold text-decoration-none">
                 Register Now
               </a>
             </p>
@@ -482,7 +484,12 @@
           });
 
           // Update total count
-          document.getElementById('totalRescuers').textContent = data.total;
+          document.getElementById('totalRescuers').textContent = data.total + '+';
+
+          // Update total rescues count
+          if (data.total_rescues !== undefined) {
+            document.getElementById('totalRescues').textContent = data.total_rescues + '+';
+          }
 
           // Generate pagination
           pagination.innerHTML = '';

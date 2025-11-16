@@ -1,31 +1,39 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
+require_once "db.php";
 
 // Check if user is logged in
 if (!isset($_SESSION['rescuer_id'])) {
-    header("Location: rescuer_registration.php");
+    header("Location: rescuers.php");
     exit();
-}
-
-// Database connection
-$conn = new mysqli("localhost", "root", "", "wsrtbd");
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
 }
 
 // Fetch rescuer data
 $rescuer_id = $_SESSION['rescuer_id'];
 $sql = "SELECT * FROM rescuers WHERE id = ?";
-$stmt = $conn->prepare($sql);
+$stmt = $mysqli->prepare($sql);
+if (!$stmt) {
+    die("Prepare failed: " . $mysqli->error);
+}
 $stmt->bind_param("i", $rescuer_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $rescuer = $result->fetch_assoc();
 
+if (!$rescuer) {
+    session_destroy();
+    header("Location: rescuers.php");
+    exit();
+}
+
 // Fetch rescue activities
 $rescue_sql = "SELECT * FROM rescue_activities WHERE rescuer_id = ? ORDER BY rescue_date DESC";
-$rescue_stmt = $conn->prepare($rescue_sql);
+$rescue_stmt = $mysqli->prepare($rescue_sql);
+if (!$rescue_stmt) {
+    die("Prepare failed: " . $mysqli->error);
+}
 $rescue_stmt->bind_param("i", $rescuer_id);
 $rescue_stmt->execute();
 $rescue_result = $rescue_stmt->get_result();
@@ -37,7 +45,10 @@ $stats_sql = "SELECT
     SUM(CASE WHEN rescue_type = 'Bird Rescue' THEN 1 ELSE 0 END) as bird_rescues,
     SUM(CASE WHEN rescue_type NOT IN ('Snake Rescue', 'Bird Rescue') THEN 1 ELSE 0 END) as other_rescues
     FROM rescue_activities WHERE rescuer_id = ?";
-$stats_stmt = $conn->prepare($stats_sql);
+$stats_stmt = $mysqli->prepare($stats_sql);
+if (!$stats_stmt) {
+    die("Prepare failed: " . $mysqli->error);
+}
 $stats_stmt->bind_param("i", $rescuer_id);
 $stats_stmt->execute();
 $stats = $stats_stmt->get_result()->fetch_assoc();
@@ -64,6 +75,10 @@ $stats = $stats_stmt->get_result()->fetch_assoc();
         .navbar-custom {
             background: linear-gradient(135deg, #006400 0%, #005600 100%);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         .navbar-brand img {
@@ -259,21 +274,16 @@ $stats = $stats_stmt->get_result()->fetch_assoc();
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-
-
-            <a class="navbar-brand d-flex align-items-center" href="index.php">
+            <a class="navbar-brand" href="index.php">
                 <img src="wsrtbd.png" alt="WSRTBD Logo" />
-                <span class="ms-2">WSRTBD</span>
+                WSRTBD
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -290,8 +300,8 @@ $stats = $stats_stmt->get_result()->fetch_assoc();
         </div>
     </nav>
 
-    <!-- Profile Header -->
-    <div class="profile-header">
+    <!-- PROFILE HEADER -->
+    <section class="profile-header">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-3 text-center">
@@ -299,293 +309,260 @@ $stats = $stats_stmt->get_result()->fetch_assoc();
                         <i class="bi bi-person-circle"></i>
                     </div>
                 </div>
-                <div class="col-md-9 text-center text-md-start mt-3 mt-md-0">
-                    <h2><?php echo htmlspecialchars($rescuer['full_name']); ?></h2>
-                    <p class="mb-2"><i class="bi bi-envelope me-2"></i><?php echo htmlspecialchars($rescuer['email']); ?></p>
-                    <p class="mb-2"><i class="bi bi-telephone me-2"></i><?php echo htmlspecialchars($rescuer['phone']); ?></p>
+                <div class="col-md-9">
+                    <div class="d-flex align-items-center mb-2">
+                        <h2 class="fw-bold mb-0 me-3"><?php echo htmlspecialchars($rescuer['full_name']); ?></h2>
+                        <?php if ($rescuer['verification_status'] == 'verified'): ?>
+                            <span class="badge-status badge-approved">
+                                <i class="bi bi-check-circle-fill me-1"></i>Verified
+                            </span>
+                        <?php elseif ($rescuer['verification_status'] == 'rejected'): ?>
+                            <span class="badge-status" style="background: #f8d7da; color: #721c24;">
+                                <i class="bi bi-x-circle-fill me-1"></i>Rejected
+                            </span>
+
+                        <?php else: ?>
+                            <span class="badge-status badge-pending">
+                                <i class="bi bi-clock-fill me-1"></i>Pending Verification
+                            </span>
+                        <?php endif; ?>
+                    </div>
+                    <p class="mb-1"><i class="bi bi-envelope me-2"></i><?php echo htmlspecialchars($rescuer['email']); ?></p>
+                    <p class="mb-1"><i class="bi bi-telephone me-2"></i><?php echo htmlspecialchars($rescuer['phone']); ?></p>
                     <p class="mb-0"><i class="bi bi-geo-alt me-2"></i><?php echo htmlspecialchars($rescuer['division']); ?></p>
-                    <span class="badge badge-status badge-approved mt-2">
-                        <i class="bi bi-check-circle me-1"></i>Approved Rescuer
-                    </span>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Stats Section -->
-    <div class="container mb-5">
-        <div class="row g-4">
-            <div class="col-md-3 col-6">
-                <div class="stat-card">
-                    <div class="stat-number"><?php echo $stats['total_rescues'] ?? 0; ?></div>
-                    <div class="stat-label">Total Rescues</div>
-                </div>
+    <?php if ($rescuer['verification_status'] == 'pending'): ?>
+        <!-- PENDING VERIFICATION ALERT -->
+        <div class="container mt-4">
+            <div class="alert alert-warning" role="alert">
+                <h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill me-2"></i>Account Pending Verification</h5>
+                <p class="mb-0">Your account is currently under review. You'll be able to add rescue activities once your account is verified by our admin team. This usually takes 1-3 business days.</p>
             </div>
-            <div class="col-md-3 col-6">
-                <div class="stat-card">
-                    <div class="stat-number"><?php echo $stats['snake_rescues'] ?? 0; ?></div>
-                    <div class="stat-label">Snake Rescues</div>
-                </div>
+        </div>
+    <?php elseif ($rescuer['verification_status'] == 'rejected'): ?>
+        <!-- REJECTED ALERT -->
+        <div class="container mt-4">
+            <div class="alert alert-danger" role="alert">
+                <h5 class="alert-heading"><i class="bi bi-x-circle-fill me-2"></i>Account Verification Rejected</h5>
+                <p class="mb-0">Unfortunately, your account verification was not approved. Please contact our support team at wsrtbd@gmail.com for more information.</p>
             </div>
-            <div class="col-md-3 col-6">
-                <div class="stat-card">
-                    <div class="stat-number"><?php echo $stats['bird_rescues'] ?? 0; ?></div>
-                    <div class="stat-label">Bird Rescues</div>
+        </div>
+    <?php endif; ?>
+
+    <!-- STATISTICS -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number"><?php echo $stats['total_rescues']; ?></div>
+                        <div class="stat-label">Total Rescues</div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="stat-card">
-                    <div class="stat-number"><?php echo $stats['other_rescues'] ?? 0; ?></div>
-                    <div class="stat-label">Other Rescues</div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number"><?php echo $stats['snake_rescues']; ?></div>
+                        <div class="stat-label">Snake Rescues</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number"><?php echo $stats['bird_rescues']; ?></div>
+                        <div class="stat-label">Bird Rescues</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number"><?php echo $stats['other_rescues']; ?></div>
+                        <div class="stat-label">Other Rescues</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <!-- Left Column - Personal Info -->
-            <div class="col-lg-4 mb-4">
-                <div class="info-card">
-                    <h5><i class="bi bi-person-circle me-2"></i>Personal Information</h5>
-                    <div class="info-row">
-                        <div class="info-label">Full Name:</div>
-                        <div class="info-value"><?php echo htmlspecialchars($rescuer['full_name']); ?></div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Date of Birth:</div>
-                        <div class="info-value"><?php echo date('F d, Y', strtotime($rescuer['dob'])); ?></div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Gender:</div>
-                        <div class="info-value"><?php echo htmlspecialchars($rescuer['gender']); ?></div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">National ID:</div>
-                        <div class="info-value"><?php echo htmlspecialchars($rescuer['national_id']); ?></div>
+    <!-- PROFILE INFO & RESCUE ACTIVITIES -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Personal Information -->
+                <div class="col-lg-5 mb-4">
+                    <div class="info-card">
+                        <h5><i class="bi bi-person-lines-fill me-2"></i>Personal Information</h5>
+                        <div class="info-row">
+                            <div class="info-label">Full Name</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['full_name']); ?></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Date of Birth</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['dob']); ?></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Gender</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['gender']); ?></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">National ID</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['national_id']); ?></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Division</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['division']); ?></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Full Address</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['full_address']); ?></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Phone</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['phone']); ?></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Email</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['email']); ?></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Experience</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['experience']); ?></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Certificate ID</div>
+                            <div class="info-value"><?php echo htmlspecialchars($rescuer['certificate_id']); ?></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="info-card">
-                    <h5><i class="bi bi-geo-alt-fill me-2"></i>Location Details</h5>
-                    <div class="info-row">
-                        <div class="info-label">Division:</div>
-                        <div class="info-value"><?php echo htmlspecialchars($rescuer['division']); ?></div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Full Address:</div>
-                        <div class="info-value"><?php echo htmlspecialchars($rescuer['full_address']); ?></div>
-                    </div>
-                </div>
+                <!-- Rescue Activities -->
+                <div class="col-lg-7">
+                    <div class="info-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0"><i class="bi bi-clipboard-data me-2"></i>Rescue Activities</h5>
+                            <button class="btn btn-success btn-sm btn-add-rescue" data-bs-toggle="modal" data-bs-target="#addRescueModal">
+                                <i class="bi bi-plus-circle me-1"></i> Add Rescue
+                            </button>
+                        </div>
 
-                <div class="info-card">
-                    <h5><i class="bi bi-award-fill me-2"></i>Experience</h5>
-                    <div class="info-row">
-                        <div class="info-label">Experience:</div>
-                        <div class="info-value"><?php echo htmlspecialchars($rescuer['experience']); ?></div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Certificate ID:</div>
-                        <div class="info-value"><?php echo htmlspecialchars($rescuer['certificate_id'] ?: 'N/A'); ?></div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Joined Date:</div>
-                        <div class="info-value"><?php echo date('F d, Y', strtotime($rescuer['created_at'])); ?></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column - Rescue Activities -->
-            <div class="col-lg-8">
-                <div class="info-card">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h5 class="mb-0"><i class="bi bi-clipboard-check me-2"></i>Rescue Activities</h5>
-                        <button class="btn btn-primary btn-add-rescue" data-bs-toggle="modal" data-bs-target="#addRescueModal">
-                            <i class="bi bi-plus-circle me-2"></i>Add Rescue Info
-                        </button>
-                    </div>
-
-                    <!-- Rescue List -->
-                    <div id="rescueList">
                         <?php if ($rescue_result->num_rows > 0): ?>
                             <?php while ($rescue = $rescue_result->fetch_assoc()): ?>
-                                <?php
-                                // Determine type color
-                                $typeStyle = 'background: #e7f5e9; color: #167923;';
-                                if (strpos($rescue['rescue_type'], 'Bird') !== false) {
-                                    $typeStyle = 'background: #fff3cd; color: #856404;';
-                                } elseif (strpos($rescue['rescue_type'], 'Mammal') !== false) {
-                                    $typeStyle = 'background: #d1ecf1; color: #0c5460;';
-                                }
-                                ?>
                                 <div class="rescue-card">
                                     <div class="d-flex justify-content-between align-items-start mb-2">
                                         <div>
-                                            <span class="rescue-type" style="<?php echo $typeStyle; ?>">
-                                                <?php echo htmlspecialchars($rescue['rescue_type']); ?>
-                                            </span>
-                                            <h6 class="mt-2 mb-1"><?php echo htmlspecialchars(substr($rescue['description'], 0, 50)); ?>...</h6>
+                                            <span class="rescue-type"><?php echo htmlspecialchars($rescue['rescue_type']); ?></span>
+                                            <h6 class="mt-2 mb-1"><?php echo htmlspecialchars($rescue['species_name']); ?></h6>
                                         </div>
-                                        <small class="rescue-date"><?php echo date('M d, Y', strtotime($rescue['rescue_date'])); ?></small>
+                                        <span class="rescue-date">
+                                            <i class="bi bi-calendar3 me-1"></i>
+                                            <?php echo date('d M Y', strtotime($rescue['rescue_date'])); ?>
+                                        </span>
                                     </div>
-                                    <p class="mb-2 small">
-                                        <i class="bi bi-geo-alt me-1"></i><?php echo htmlspecialchars($rescue['location']); ?>
-                                    </p>
-                                    <?php if (!empty($rescue['species_name'])): ?>
-                                        <p class="mb-2 small">
-                                            <strong>Species:</strong> <?php echo htmlspecialchars($rescue['species_name']); ?>
-                                            <?php if (!empty($rescue['size'])): ?>
-                                                (<?php echo htmlspecialchars($rescue['size']); ?>)
-                                            <?php endif; ?>
-                                        </p>
-                                    <?php endif; ?>
-                                    <p class="mb-0 text-muted small"><?php echo htmlspecialchars($rescue['description']); ?></p>
-                                    <?php if (!empty($rescue['notes'])): ?>
-                                        <p class="mb-0 text-muted small mt-2"><em><?php echo htmlspecialchars($rescue['notes']); ?></em></p>
-                                    <?php endif; ?>
+                                    <p class="mb-2 small"><i class="bi bi-geo-alt me-1"></i><?php echo htmlspecialchars($rescue['location']); ?></p>
+                                    <p class="mb-2 small text-muted"><?php echo htmlspecialchars($rescue['description']); ?></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="small"><strong>Size:</strong> <?php echo htmlspecialchars($rescue['size']); ?></span>
+                                        <span class="small"><strong>Condition:</strong> <?php echo htmlspecialchars($rescue['condition']); ?></span>
+                                        <span class="small"><strong>Action:</strong> <?php echo htmlspecialchars($rescue['action']); ?></span>
+                                    </div>
                                 </div>
                             <?php endwhile; ?>
                         <?php else: ?>
-                            <!-- Empty State -->
                             <div class="empty-state">
                                 <i class="bi bi-inbox"></i>
-                                <h5>No Rescue Activities Yet</h5>
-                                <p>Start adding your rescue activities by clicking the button above.</p>
+                                <p>No rescue activities recorded yet.</p>
+                                <button class="btn btn-success btn-add-rescue" data-bs-toggle="modal" data-bs-target="#addRescueModal">
+                                    Add Your First Rescue
+                                </button>
                             </div>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Add Rescue Modal -->
-    <div class="modal fade" id="addRescueModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal fade" id="addRescueModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i>Add Rescue Information</h5>
+                    <h5 class="modal-title">Add New Rescue Activity</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body p-4">
+                <div class="modal-body">
                     <form id="addRescueForm" method="POST" action="add_rescue.php" enctype="multipart/form-data">
-
-                        <!-- Rescue Type -->
-                        <div class="row g-3 mb-3">
+                        <div class="row g-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-semibold">Rescue Type *</label>
+                                <label class="form-label">Rescue Type *</label>
                                 <select class="form-select" name="rescue_type" required>
-                                    <option selected disabled>Select rescue type</option>
+                                    <option value="">Select Type</option>
                                     <option value="Snake Rescue">Snake Rescue</option>
                                     <option value="Bird Rescue">Bird Rescue</option>
                                     <option value="Mammal Rescue">Mammal Rescue</option>
                                     <option value="Reptile Rescue">Reptile Rescue</option>
-                                    <option value="Other Wildlife">Other Wildlife</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
-
                             <div class="col-md-6">
-                                <label class="form-label fw-semibold">Date of Rescue *</label>
-                                <input type="date" class="form-control" name="rescue_date" max="<?php echo date('Y-m-d'); ?>" required />
+                                <label class="form-label">Rescue Date *</label>
+                                <input type="date" class="form-control" name="rescue_date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Species Name *</label>
+                                <input type="text" class="form-control" name="species_name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Size</label>
+                                <input type="text" class="form-control" name="size" placeholder="e.g., 3 feet">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Location *</label>
+                                <input type="text" class="form-control" name="location" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Condition *</label>
+                                <select class="form-select" name="condition" required>
+                                    <option value="">Select Condition</option>
+                                    <option value="Healthy">Healthy</option>
+                                    <option value="Injured">Injured</option>
+                                    <option value="Dead">Dead</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Action Taken *</label>
+                                <select class="form-select" name="action" required>
+                                    <option value="">Select Action</option>
+                                    <option value="Released">Released</option>
+                                    <option value="Treated & Released">Treated & Released</option>
+                                    <option value="Handed to Authorities">Handed to Authorities</option>
+                                    <option value="Under Treatment">Under Treatment</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Description *</label>
+                                <textarea class="form-control" name="description" rows="3" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Notes (Optional)</label>
+                                <textarea class="form-control" name="notes" rows="2"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Rescue Photo</label>
+                                <input type="file" class="form-control" name="rescue_photo" accept="image/*">
                             </div>
                         </div>
-
-                        <!-- Species Details -->
-                        <div class="row g-3 mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label fw-semibold">Species Name</label>
-                                <input type="text" class="form-control" name="species_name" placeholder="e.g., Cobra, Sparrow" />
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="form-label fw-semibold">Estimated Size/Age</label>
-                                <input type="text" class="form-control" name="size" placeholder="e.g., 4 feet, 2 months old" />
-                            </div>
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-success btn-add-rescue w-100">Submit Rescue Activity</button>
                         </div>
-
-                        <!-- Location -->
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Rescue Location *</label>
-                            <input type="text" class="form-control" name="location" placeholder="Area, District" required />
-                        </div>
-
-                        <!-- Condition -->
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Animal Condition *</label>
-                            <select class="form-select" name="condition" required>
-                                <option selected disabled>Select condition</option>
-                                <option value="Healthy">Healthy</option>
-                                <option value="Injured">Injured</option>
-                                <option value="Sick">Sick</option>
-                                <option value="Distressed">Distressed</option>
-                            </select>
-                        </div>
-
-                        <!-- Description -->
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Rescue Description *</label>
-                            <textarea class="form-control" name="description" rows="4" placeholder="Describe the rescue situation, actions taken, and outcome..." required></textarea>
-                        </div>
-
-                        <!-- Action Taken -->
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Action Taken *</label>
-                            <select class="form-select" name="action" required>
-                                <option selected disabled>Select action</option>
-                                <option value="Released to Natural Habitat">Released to Natural Habitat</option>
-                                <option value="Transferred to Wildlife Center">Transferred to Wildlife Center</option>
-                                <option value="Provided First Aid & Released">Provided First Aid & Released</option>
-                                <option value="Under Medical Care">Under Medical Care</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-
-                        <!-- Photo Upload (Optional) -->
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Upload Photo (Optional)</label>
-                            <input type="file" class="form-control" name="rescue_photo" accept="image/*" />
-                            <small class="text-muted">Max file size: 5MB</small>
-                        </div>
-
-                        <!-- Additional Notes -->
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Additional Notes</label>
-                            <textarea class="form-control" name="notes" rows="2" placeholder="Any additional information..."></textarea>
-                        </div>
-
-                        <!-- Buttons -->
-                        <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-success flex-grow-1">
-                                <i class="bi bi-check-circle me-2"></i>Submit Rescue Info
-                            </button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <!-- Success Modal -->
-    <div class="modal fade" id="successModal" tabindex="-1" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-4">
-                <div class="modal-body text-center">
-                    <div class="text-success mb-3">
-                        <i class="bi bi-check-circle" style="font-size: 4rem;"></i>
-                    </div>
-                    <h4 class="text-success mb-2">Rescue Info Added!</h4>
-                    <p>Your rescue activity has been successfully recorded.</p>
-                    <button class="btn btn-success mt-3" onclick="window.location.href='profile.php'">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="bg-dark text-light pt-5 pb-3">
         <div class="container">
             <div class="row">
@@ -597,13 +574,17 @@ $stats = $stats_stmt->get_result()->fetch_assoc();
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5>Follow Us</h5>
-                    <p><a href="https://www.facebook.com/wsrtbd" class="text-light me-3" target="_blank"><i class="bi bi-facebook"></i> Facebook Page</a></p>
-                    <p><a href="https://www.facebook.com/groups/www.wsrtbd.epizy.co" class="text-light" target="_blank"><i class="bi bi-facebook"></i> Facebook Group</a></p>
+                    <p>
+                        <a href="https://www.facebook.com/wsrtbd" class="text-light me-3" target="_blank">
+                            <i class="bi bi-facebook"></i> Facebook Page
+                        </a>
+                    </p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5>Get Our App</h5>
-                    <a href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh" class="btn btn-primary mb-2" target="_blank">Download App</a>
-                    <p class="small mt-2">Available on Android now.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh" class="btn btn-success mb-2" target="_blank">
+                        Download App
+                    </a>
                 </div>
             </div>
             <hr class="bg-light" />
@@ -614,17 +595,10 @@ $stats = $stats_stmt->get_result()->fetch_assoc();
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Show success modal if rescue was added
-        <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
-            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-            successModal.show();
-        <?php endif; ?>
-    </script>
 </body>
 
 </html>
 
 <?php
-$conn->close();
+$mysqli->close();
 ?>

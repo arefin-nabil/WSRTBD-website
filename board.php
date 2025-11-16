@@ -1,4 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+include "db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -252,7 +254,7 @@
 
           <form id="loginForm">
             <div class="mb-3">
-              <label class="form-label fw-semibold">Email or Phone Number</label>
+              <label class="form-label fw-semibold">Email</label>
               <input
                 type="text"
                 id="loginIdentifier"
@@ -287,7 +289,7 @@
 
             <p class="text-center mt-3 small">
               Don't have an account?
-              <a href="signup.html" class="fw-semibold text-decoration-none">
+              <a href="signup.php" class="fw-semibold text-decoration-none">
                 Register Now
               </a>
             </p>

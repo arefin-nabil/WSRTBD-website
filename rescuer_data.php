@@ -77,6 +77,15 @@ try {
     }
 
     $stmt->close();
+
+    // Get total rescues count from rescue_activities table
+    $rescueCountSql = "SELECT COUNT(*) AS total_rescues FROM rescue_activities";
+    $rescueResult = $mysqli->query($rescueCountSql);
+    $totalRescues = 0;
+    if ($rescueResult) {
+        $totalRescues = $rescueResult->fetch_assoc()['total_rescues'];
+    }
+
     $mysqli->close();
 
     echo json_encode([
@@ -85,7 +94,8 @@ try {
         'page' => $page,
         'per_page' => $per_page,
         'total' => $total,
-        'total_pages' => $total_pages
+        'total_pages' => $total_pages,
+        'total_rescues' => $totalRescues
     ], JSON_UNESCAPED_UNICODE);
 } catch (Exception $e) {
     http_response_code(500);
