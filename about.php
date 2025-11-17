@@ -15,6 +15,10 @@
   <link
     href="https://fonts.maateen.me/solaiman-lipi/font.css"
     rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="/wsrtbd.png">
+
+
   <style>
     /* Custom Styles */
     body {

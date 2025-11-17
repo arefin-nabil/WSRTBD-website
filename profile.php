@@ -64,6 +64,8 @@ $stats = $stats_stmt->get_result()->fetch_assoc();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
     <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/wsrtbd.png">
+
     <style>
         body {
             font-family: "SolaimanLipi", sans-serif;
