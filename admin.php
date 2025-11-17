@@ -167,7 +167,13 @@ $stats = $mysqli->query("SELECT
             <a class="nav-link" href="index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="profile.php">Admin</a>
+            <a class="nav-link active" href="admin.php">Rescuer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="admin_messages.php">Messages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="admin_rescue_requests.php">Rescue Requests</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
@@ -175,7 +181,7 @@ $stats = $mysqli->query("SELECT
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> 
 
 
   <div class="container py-5">

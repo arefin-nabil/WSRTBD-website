@@ -498,6 +498,45 @@
       //   // Handle response
       // });
     });
+
+
+
+
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const submitButton = this.querySelector('button[type="submit"]');
+      const messageDiv = document.getElementById('formMessage');
+
+      // Disable button and show loading
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+
+      try {
+        const response = await fetch('submit_contact.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        messageDiv.style.display = 'block';
+        messageDiv.className = 'alert ' + (result.success ? 'alert-success' : 'alert-danger');
+        messageDiv.textContent = result.message;
+
+        if (result.success) {
+          this.reset();
+        }
+      } catch (error) {
+        messageDiv.style.display = 'block';
+        messageDiv.className = 'alert alert-danger';
+        messageDiv.textContent = 'An error occurred. Please try again.';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = '<i class="bi bi-send-fill me-2"></i>Send Message';
+      }
+    });
   </script>
 </body>
 

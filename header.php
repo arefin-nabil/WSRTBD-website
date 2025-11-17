@@ -47,6 +47,11 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link <?= ($current_page == 'activities.php') ? 'active' : '' ?>"
+                        href="activities.php">Activities</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link"
                         href="https://binarybardbd.com/category/snakes-nature/"
                         target="_blank" rel="noopener noreferrer">Blog</a>

@@ -28,17 +28,36 @@ if (!$rescuer) {
     exit();
 }
 
-// Fetch rescue activities
-$rescue_sql = "SELECT * FROM rescue_activities WHERE rescuer_id = ? ORDER BY rescue_date DESC";
+// Pagination for rescue activities
+$per_page = 10;
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+
+// Count total rescue activities
+$count_sql = "SELECT COUNT(*) as total FROM rescue_activities WHERE rescuer_id = ?";
+$count_stmt = $mysqli->prepare($count_sql);
+$count_stmt->bind_param("i", $rescuer_id);
+$count_stmt->execute();
+$total_result = $count_stmt->get_result();
+$total_count = $total_result->fetch_assoc()['total'];
+$total_pages = max(1, ceil($total_count / $per_page));
+
+// Ensure current page is within bounds
+if ($page > $total_pages) {
+    $page = $total_pages;
+}
+$offset = ($page - 1) * $per_page;
+
+// Fetch rescue activities with pagination
+$rescue_sql = "SELECT * FROM rescue_activities WHERE rescuer_id = ? ORDER BY rescue_date DESC LIMIT ? OFFSET ?";
 $rescue_stmt = $mysqli->prepare($rescue_sql);
 if (!$rescue_stmt) {
     die("Prepare failed: " . $mysqli->error);
 }
-$rescue_stmt->bind_param("i", $rescuer_id);
+$rescue_stmt->bind_param("iii", $rescuer_id, $per_page, $offset);
 $rescue_stmt->execute();
 $rescue_result = $rescue_stmt->get_result();
 
-// Calculate statistics
+// Calculate statistics (total counts, not paginated)
 $stats_sql = "SELECT 
     COUNT(*) as total_rescues,
     SUM(CASE WHEN rescue_type = 'Snake Rescue' THEN 1 ELSE 0 END) as snake_rescues,
@@ -322,7 +341,6 @@ $stats = $stats_stmt->get_result()->fetch_assoc();
                             <span class="badge-status" style="background: #f8d7da; color: #721c24;">
                                 <i class="bi bi-x-circle-fill me-1"></i>Rejected
                             </span>
-
                         <?php else: ?>
                             <span class="badge-status badge-pending">
                                 <i class="bi bi-clock-fill me-1"></i>Pending Verification
@@ -470,6 +488,46 @@ $stats = $stats_stmt->get_result()->fetch_assoc();
                                     </div>
                                 </div>
                             <?php endwhile; ?>
+
+                            <!-- PAGINATION -->
+                            <?php if ($total_pages > 1): ?>
+                                <nav aria-label="Rescue activities pagination" class="mt-4">
+                                    <ul class="pagination justify-content-center">
+                                        <!-- Previous -->
+                                        <?php if ($page > 1): ?>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=<?php echo $page - 1; ?>">Previous</a>
+                                            </li>
+                                        <?php endif; ?>
+
+                                        <!-- Page numbers -->
+                                        <?php
+                                        $start = max(1, $page - 2);
+                                        $end = min($total_pages, $page + 2);
+
+                                        if ($start > 1): ?>
+                                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                                        <?php endif;
+
+                                        for ($i = $start; $i <= $end; $i++): ?>
+                                            <li class="page-item <?php echo $i == $page ? 'active' : ''; ?>">
+                                                <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                            </li>
+                                        <?php endfor;
+
+                                        if ($end < $total_pages): ?>
+                                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                                        <?php endif; ?>
+
+                                        <!-- Next -->
+                                        <?php if ($page < $total_pages): ?>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=<?php echo $page + 1; ?>">Next</a>
+                                            </li>
+                                        <?php endif; ?>
+                                    </ul>
+                                </nav>
+                            <?php endif; ?>
                         <?php else: ?>
                             <div class="empty-state">
                                 <i class="bi bi-inbox"></i>

@@ -240,7 +240,8 @@
         বাংলাদেশের সবচেয়ে বড় সাপ ও বন্যপ্রাণী উদ্ধার সংগঠন হিসেবে আমরা
         প্রতিনিয়ত কাজ করছি মানুষ ও বন্যপ্রাণীর নিরাপদ সহাবস্থানের জন্য।
       </p>
-      <a href="contact.php" class="btn btn-danger btn-lg">Request for Rescue</a>
+      <button class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#rescueRequestModal">Request for Rescue
+      </button>
       <a href="rescuers.php" class="btn btn-warning btn-lg">Find Rescuer</a>
       <a
         href="https://play.google.com/store/apps/details?id=com.binarybardbd.snakesofbangladesh"
@@ -729,6 +730,205 @@
         });
     });
   </script>
+
+
+  <!-- RESCUE REQUEST MODAL - Add this before </body> in index.php -->
+<div class="modal fade" id="rescueRequestModal" tabindex="-1" aria-labelledby="rescueRequestModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="rescueRequestModalLabel">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i>জরুরি উদ্ধার অনুরোধ
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-warning">
+          <i class="bi bi-info-circle me-2"></i>
+          <strong>জরুরি?</strong> জীবন-সংকটজনক পরিস্থিতিতে সরাসরি কল করুন: <strong>+880 1722 938276</strong>
+        </div>
+
+        <form id="rescueRequestForm">
+          <h6 class="mb-3 fw-bold">আপনার তথ্য</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">পূর্ণ নাম *</label>
+              <input type="text" name="requester_name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">ফোন নম্বর *</label>
+              <input type="tel" name="requester_phone" class="form-control" placeholder="+880 1XXX XXXXXX" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label">ইমেইল ঠিকানা (ঐচ্ছিক)</label>
+              <input type="email" name="requester_email" class="form-control">
+            </div>
+          </div>
+
+          <h6 class="mb-3 fw-bold">জরুরি পরিস্থিতির বিবরণ</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">প্রাণীর ধরন *</label>
+              <select name="emergency_type" class="form-select" required>
+                <option value="">ধরন নির্বাচন করুন</option>
+                <option value="Snake">সাপ</option>
+                <option value="Bird">পাখি</option>
+                <option value="Mammal">স্তন্যপায়ী</option>
+                <option value="Reptile">সরীসৃপ (অন্যান্য)</option>
+                <option value="Other">অন্যান্য বন্যপ্রাণী</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">জরুরিতার মাত্রা *</label>
+              <select name="urgency_level" class="form-select" required>
+                <option value="Medium">মাঝারি - কয়েক ঘণ্টা অপেক্ষা করতে পারবেন</option>
+                <option value="High">বেশি - দ্রুত সাহায্য প্রয়োজন</option>
+                <option value="Critical">অত্যন্ত জরুরি - তাৎক্ষণিক প্রাণনাশের ঝুঁকি আছে</option>
+                <option value="Low">কম - তাৎক্ষণিক ঝুঁকি নেই</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">প্রাণীর আকার/দৈর্ঘ্য (আনুমনিক) </label>
+              <input type="text" name="animal_size" class="form-control" placeholder="যেমন: ২ ফুট, ছোট, বড়">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">প্রাণীর অবস্থা *</label>
+              <select name="animal_condition" class="form-select" required>
+                <option value="Unknown">অজানা</option>
+                <option value="Calm">শান্ত/লুকিয়ে আছে</option>
+                <option value="Aggressive">আক্রমণাত্মক/চঞ্চল</option>
+                <option value="Injured">আহত</option>
+                <option value="Dead">মৃত</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">প্রাণীর বিবরণ দিন *</label>
+              <textarea name="animal_description" class="form-control" rows="3"
+                placeholder="দয়া করে রং, দাগ, আকার, আচরণ ইত্যাদি বর্ণনা করুন" required></textarea>
+            </div>
+          </div>
+
+          <h6 class="mb-3 fw-bold">অবস্থানের তথ্য</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">বিভাগ *</label>
+              <select name="division" class="form-select" required>
+                <option value="">বিভাগ নির্বাচন করুন</option>
+                <option value="Dhaka">ঢাকা</option>
+                <option value="Chittagong">চট্টগ্রাম</option>
+                <option value="Rajshahi">রাজশাহী</option>
+                <option value="Khulna">খুলনা</option>
+                <option value="Barisal">বরিশাল</option>
+                <option value="Sylhet">সিলেট</option>
+                <option value="Rangpur">রংপুর</option>
+                <option value="Mymensingh">ময়মনসিংহ</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">জেলা</label>
+              <input type="text" name="district" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">অবস্থানের ধরন *</label>
+              <select name="location_type" class="form-select" required>
+                <option value="Residential">আবাসিক (বাড়ি/ফ্ল্যাট)</option>
+                <option value="Commercial">বাণিজ্যিক (অফিস/দোকান)</option>
+                <option value="Agricultural">কৃষি এলাকা (খামার/ক্ষেত)</option>
+                <option value="Forest">বন/জঙ্গল এলাকা</option>
+                <option value="Water Body">জলাশয়ের পাশে</option>
+                <option value="Road">সড়ক/হাইওয়ে</option>
+                <option value="Other">অন্যান্য</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">যোগাযোগ করার উপযুক্ত সময়</label>
+              <input type="text" name="preferred_contact_time" class="form-control"
+                placeholder="যেমন: সকাল, যেকোনো সময়, বিকেল ৫টার পরে">
+            </div>
+            <div class="col-12">
+              <label class="form-label">বিস্তারিত ঠিকানা *</label>
+              <textarea name="detailed_address" class="form-control" rows="2"
+                placeholder="বাড়ি/বিল্ডিং নাম, সড়ক, এলাকা, কাছাকাছি চিহ্ন" required></textarea>
+            </div>
+          </div>
+
+          <h6 class="mb-3 fw-bold">অতিরিক্ত তথ্য</h6>
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label">অতিরিক্ত মন্তব্য</label>
+              <textarea name="additional_notes" class="form-control" rows="2"
+                placeholder="অন্য কোনো গুরুত্বপূর্ণ তথ্য..."></textarea>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                <label class="form-check-label" for="agreeTerms">
+                  আমি সঠিক তথ্য প্রদান করছি এবং বুঝতে পারছি যে ভুয়া জরুরি বার্তা সত্যিকারের উদ্ধার কাজে বিলম্ব ঘটাতে পারে। *
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div id="rescueFormMessage" style="display: none;" class="alert mt-3"></div>
+
+          <div class="mt-4">
+            <button type="submit" class="btn btn-danger btn-lg w-100">
+              <i class="bi bi-send-fill me-2"></i>উদ্ধার অনুরোধ জমা দিন
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- JAVASCRIPT FOR RESCUE REQUEST FORM -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('rescueRequestForm');
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const submitButton = this.querySelector('button[type="submit"]');
+        const messageDiv = document.getElementById('rescueFormMessage');
+
+        // Disable button and show loading
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Submitting...';
+
+        try {
+          const response = await fetch('submit_rescue_request.php', {
+            method: 'POST',
+            body: formData
+          });
+
+          const result = await response.json();
+
+          messageDiv.style.display = 'block';
+          messageDiv.className = 'alert mt-3 ' + (result.success ? 'alert-success' : 'alert-danger');
+          messageDiv.textContent = result.message;
+
+          if (result.success) {
+            form.reset();
+            setTimeout(() => {
+              bootstrap.Modal.getInstance(document.getElementById('rescueRequestModal')).hide();
+              messageDiv.style.display = 'none';
+            }, 3000);
+          }
+        } catch (error) {
+          messageDiv.style.display = 'block';
+          messageDiv.className = 'alert mt-3 alert-danger';
+          messageDiv.textContent = 'An error occurred. Please try again or call us directly.';
+        } finally {
+          submitButton.disabled = false;
+          submitButton.innerHTML = '<i class="bi bi-send-fill me-2"></i>Submit Rescue Request';
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>
