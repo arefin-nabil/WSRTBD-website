@@ -482,7 +482,7 @@ $all_activities = array_slice($all_activities, $offset, $per_page);
                     <form id="loginForm">
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Email</label>
-                            <input type="text" id="loginIdentifier" name="email" class="form-control" placeholder="Enter email or phone" required />
+                            <input type="text" id="loginIdentifier" name="email" class="form-control" placeholder="Enter email address" required />
                         </div>
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Password</label>

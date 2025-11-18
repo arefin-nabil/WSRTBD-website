@@ -201,110 +201,110 @@
       </div>
     </div>
 
+    <!-- sign up container  -->
     <div class="signup-container">
       <div class="signup-card">
         <div class="signup-body">
           <form id="rescuerForm">
             <h2 style="text-align: center">
-              <b>WSRTBD Rescuer Registration Form</b>
+              <b>WSRTBD রেসকিউয়ার নিবন্ধন ফরম</b>
             </h2>
             <br /><br />
 
             <!-- Personal Information -->
             <h5 class="mb-3 fw-bold text-success">
-              <i class="bi bi-person-circle me-2"></i>Personal Information
+              <i class="bi bi-person-circle me-2"></i>ব্যক্তিগত তথ্য
             </h5>
 
             <div class="row g-3 mb-4">
               <div class="col-md-6">
-                <label class="form-label">Full Name *</label>
+                <label class="form-label">পূর্ণ নাম *</label>
                 <input
                   type="text"
                   class="form-control"
                   name="full_name"
-                  placeholder="Enter full name"
+                  placeholder="আপনার পূর্ণ নাম লিখুন"
                   required />
               </div>
 
               <div class="col-md-6">
-                <label class="form-label">Date of Birth *</label>
+                <label class="form-label">জন্ম তারিখ *</label>
                 <input type="date" class="form-control" name="dob" required />
               </div>
 
               <div class="col-md-6">
-                <label class="form-label">Gender *</label>
+                <label class="form-label">লিঙ্গ *</label>
                 <select class="form-select" name="gender" required>
-                  <option selected disabled>Select gender</option>
-                  <option>Male</option>
-                  <option>Female</option>
+                  <option selected disabled>লিঙ্গ নির্বাচন করুন</option>
+                  <option>পুরুষ</option>
+                  <option>মহিলা</option>
                 </select>
               </div>
 
               <div class="col-md-6">
-                <label class="form-label">National ID / Passport *</label>
+                <label class="form-label">জাতীয় পরিচয়পত্র / পাসপোর্ট *</label>
                 <input
                   type="text"
                   class="form-control"
                   name="national_id"
-                  placeholder="Enter ID number"
+                  placeholder="আইডি নম্বর লিখুন"
                   required />
               </div>
             </div>
 
             <!-- Location Information -->
             <h5 class="mb-3 fw-bold text-success">
-              <i class="bi bi-geo-alt-fill me-2"></i>Location Information
+              <i class="bi bi-geo-alt-fill me-2"></i>অবস্থানের তথ্য
             </h5>
 
             <div class="row g-3 mb-4">
               <div class="col-md-6">
-                <label class="form-label">Division *</label>
+                <label class="form-label">বিভাগ *</label>
                 <select class="form-select" name="division" required>
-                  <option selected disabled>Select division</option>
-                  <option>Dhaka</option>
-                  <option>Chittagong</option>
-                  <option>Rajshahi</option>
-                  <option>Khulna</option>
-                  <option>Barisal</option>
-                  <option>Sylhet</option>
-                  <option>Rangpur</option>
-                  <option>Mymensingh</option>
+                  <option selected disabled>বিভাগ নির্বাচন করুন</option>
+                  <option>ঢাকা</option>
+                  <option>চট্টগ্রাম</option>
+                  <option>রাজশাহী</option>
+                  <option>খুলনা</option>
+                  <option>বরিশাল</option>
+                  <option>সিলেট</option>
+                  <option>রংপুর</option>
+                  <option>ময়মনসিংহ</option>
                 </select>
               </div>
 
               <div class="col-12">
-                <label class="form-label">Full Address *</label>
+                <label class="form-label">সম্পূর্ণ ঠিকানা *</label>
                 <textarea
                   class="form-control"
                   name="full_address"
                   rows="2"
-                  placeholder="Village/House, Road, Thana"
+                  placeholder="গ্রাম/বাড়ি নং, রাস্তা, থানা"
                   required></textarea>
               </div>
             </div>
 
             <!-- Account Details -->
             <h5 class="mb-3 fw-bold text-success">
-              <i class="bi bi-shield-lock-fill me-2"></i>Account Details
+              <i class="bi bi-shield-lock-fill me-2"></i>অ্যাকাউন্টের তথ্য
             </h5>
 
             <div class="row g-3 mb-4">
               <div class="col-md-6">
-                <label class="form-label">Phone Number *</label>
+                <label class="form-label">মোবাইল নম্বর *</label>
                 <input
                   type="tel"
                   class="form-control"
                   name="phone"
-                  placeholder="01XXXXXXXXX"
+                  placeholder="০১xxxxxxxxx"
                   maxlength="11"
                   pattern="[0-9]{11}"
-                  title="Enter exactly 11 digits"
+                  title="ঠিক ১১ সংখ্যা লিখুন"
                   required />
               </div>
 
-
               <div class="col-md-6">
-                <label class="form-label">Email Address *</label>
+                <label class="form-label">ইমেইল ঠিকানা *</label>
                 <input
                   type="email"
                   class="form-control"
@@ -314,66 +314,65 @@
               </div>
 
               <div class="col-md-6">
-                <label class="form-label">Password *</label>
+                <label class="form-label">পাসওয়ার্ড *</label>
                 <input
                   type="password"
                   class="form-control"
                   id="password"
                   name="password"
-                  placeholder="Create password"
+                  placeholder="পাসওয়ার্ড তৈরি করুন"
                   required />
                 <div
                   class="password-strength bg-secondary"
                   id="strengthBar"></div>
-                <small class="text-muted">Min 8 characters, include uppercase, lowercase &
-                  number</small>
+                <small class="text-muted">কমপক্ষে ৮ অক্ষর, বড় হাতের, ছোট হাতের ও সংখ্যা থাকতে হবে</small>
               </div>
 
               <div class="col-md-6">
-                <label class="form-label">Confirm Password *</label>
+                <label class="form-label">পাসওয়ার্ড নিশ্চিত করুন *</label>
                 <input
                   type="password"
                   class="form-control"
                   name="confirm_password"
-                  placeholder="Confirm password"
+                  placeholder="পাসওয়ার্ড আবার লিখুন"
                   required />
               </div>
             </div>
 
             <!-- Experience -->
             <h5 class="mb-3 fw-bold text-success">
-              <i class="bi bi-award-fill me-2"></i>Experience
+              <i class="bi bi-award-fill me-2"></i>অভিজ্ঞতা
             </h5>
 
             <div class="row g-3 mb-4">
               <div class="col-md-6">
-                <label class="form-label">Previous Experience *</label>
+                <label class="form-label">পূর্ববর্তী রেসকিউ এর অভিজ্ঞতা *</label>
                 <select class="form-select" name="experience" required>
-                  <option selected disabled>Select experience</option>
-                  <option>No experience</option>
-                  <option>Less than 1 year</option>
-                  <option>1-3 years</option>
-                  <option>3-5 years</option>
-                  <option>5+ years</option>
+                  <option selected disabled>অভিজ্ঞতা নির্বাচন করুন</option>
+                  <option>কোন অভিজ্ঞতা নেই</option>
+                  <option>১ বছরের কম</option>
+                  <option>১-৩ বছর</option>
+                  <option>৩-৫ বছর</option>
+                  <option>৫+ বছর</option>
                 </select>
               </div>
 
               <div class="col-md-6">
-                <label class="form-label">Training Certification</label>
+                <label class="form-label">প্রশিক্ষণ সার্টিফিকেট</label>
                 <input
                   type="text"
                   class="form-control"
                   name="certificate_id"
-                  placeholder="Certificate / Rescuer ID no. (if any)" />
+                  placeholder="সার্টিফিকেট / রেসকিউয়ার আইডি নম্বর (যদি থাকে)" />
               </div>
 
               <div class="col-12">
-                <label class="form-label">Why do you want to join? *</label>
+                <label class="form-label">আপনি কেন WSRTBD তে যোগ দিতে চান? *</label>
                 <textarea
                   class="form-control"
                   name="motivation"
                   rows="3"
-                  placeholder="Tell us your motivation..."
+                  placeholder="আপনার উদ্দেশ্য সম্পর্কে বলুন..."
                   required></textarea>
               </div>
             </div>
@@ -388,10 +387,11 @@
                   name="terms"
                   required />
                 <label class="form-check-label small" for="terms">
-                  I agree to the
-                  <a href="#" class="text-decoration-none">Terms & Conditions</a>
-                  and
-                  <a href="#" class="text-decoration-none">Privacy Policy</a>
+                  আমি
+                  <a href="#" class="text-decoration-none">শর্তাবলী</a>
+                  এবং
+                  <a href="#" class="text-decoration-none">গোপনীয়তা নীতি</a>
+                  তে সম্মত
                 </label>
               </div>
 
@@ -403,7 +403,7 @@
                   name="newsletter"
                   value="1" />
                 <label class="form-check-label small" for="newsletter">
-                  Send me updates about training programs and rescue activities
+                  প্রশিক্ষণ কর্মসূচি এবং রেসকিউ কার্যক্রম সম্পর্কে আপডেট পাঠান
                 </label>
               </div>
             </div>
@@ -411,18 +411,18 @@
             <!-- Buttons -->
             <div class="d-grid gap-2">
               <button type="submit" class="btn btn-primary btn-register">
-                <i class="bi bi-check-circle me-2"></i>Complete Registration
+                <i class="bi bi-check-circle me-2"></i>নিবন্ধন সম্পন্ন করুন
               </button>
 
               <div class="text-center mt-3">
                 <p class="mb-0 small text-muted">
-                  Already have an account?
+                  ইতিমধ্যে অ্যাকাউন্ট আছে?
                   <a
                     data-bs-toggle="modal"
                     data-bs-target="#loginModal"
                     href="#"
                     class="text-decoration-none fw-semibold">
-                    Login Here
+                    এখানে লগইন করুন
                   </a>
                 </p>
               </div>
@@ -442,20 +442,22 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-4">
           <div class="modal-body text-center">
-            <h4 class="text-success mb-2">Registration Successful</h4>
+            <div class="mb-3">
+              <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+            </div>
+            <h4 class="text-success mb-3">নিবন্ধন সফল হয়েছে!</h4>
 
-            <small>
-              Your application will be reviewed by our team. You'll receive
-              details via email within 3–5 business days.
-            </small>
+            <p class="text-muted">
+              আপনার আবেদনটি পর্যালোচনা করে আমাদের টিম থেকে ৩-৫ কার্যদিবসের মধ্যে ইমেইলের মাধ্যমে বিস্তারিত তথ্য পাঠানো হবে।
+            </p>
 
-            <p class="mt-3">Thank you for joining WSRTBD!</p>
+            <p class="fw-bold text-success mt-3">WSRTBD তে যোগ দেওয়ার জন্য ধন্যবাদ!</p>
 
-            <div class="d-grid gap-2 mt-3">
+            <div class="d-grid gap-2 mt-4">
               <button
-                class="btn btn-success"
+                class="btn btn-success btn-lg"
                 onclick="window.location.href='index.php'">
-                Go to Home
+                <i class="bi bi-house-fill me-2"></i>হোম পেজে যান
               </button>
             </div>
           </div>
@@ -496,9 +498,14 @@
       document
         .getElementById("rescuerForm")
         .addEventListener("submit", function(e) {
-          e.preventDefault(); // stop normal page reload
+          e.preventDefault();
 
           let formData = new FormData(this);
+
+          // Submit button disable করুন
+          const submitBtn = this.querySelector('button[type="submit"]');
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>অপেক্ষা করুন...';
 
           fetch("rescuer_registration.php", {
               method: "POST",
@@ -506,14 +513,20 @@
             })
             .then((r) => r.text())
             .then((data) => {
-              // Show modal after PHP saves data
+              // Modal দেখান
               let modal = new bootstrap.Modal(
                 document.getElementById("successModal")
               );
               modal.show();
+            })
+            .catch((error) => {
+              // Error হলে
+              alert('❌ নিবন্ধন করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।');
+              console.error('Error:', error);
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i>নিবন্ধন সম্পন্ন করুন';
             });
         });
-
       // Simple login form handler
       document
         .getElementById("loginForm")
@@ -614,7 +627,7 @@
                   id="loginIdentifier"
                   name="email"
                   class="form-control"
-                  placeholder="Enter email or phone"
+                  placeholder="Enter email address"
                   required />
               </div>
 

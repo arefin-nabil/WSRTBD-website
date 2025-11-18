@@ -1,4 +1,5 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,6 +134,7 @@
 
 <body>
 
+<!-- Hero  -->
   <section class="hero-contact">
     <div class="container">
       <h1 class="display-4 fw-bold">যোগাযোগ করুন</h1>
@@ -142,6 +144,7 @@
     </div>
   </section>
 
+  <!-- sections  -->
   <section class="py-5" style="background-color: #fffff0">
     <div class="container">
       <div class="row g-4">
@@ -210,33 +213,34 @@
     </div>
   </section>
 
+  <!-- contact form  -->
   <section class="py-5">
     <div class="container">
       <div class="row justify-content-center g-5">
         <div class="col-lg-6">
-          <h2 class="fw-bold mb-4">Send Us a Message</h2>
+          <h2 class="fw-bold mb-4">আমাদের বার্তা পাঠান</h2>
           <form id="contactForm">
             <div class="row g-3">
               <div class="col-md-6">
-                <label class="form-label">Full Name *</label>
+                <label class="form-label">পূর্ণ নাম *</label>
                 <input
                   type="text"
                   name="full_name"
                   class="form-control"
-                  placeholder="Your name"
+                  placeholder="আপনার নাম"
                   required />
               </div>
               <div class="col-md-6">
-                <label class="form-label">Phone Number *</label>
+                <label class="form-label">মোবাইল নম্বর *</label>
                 <input
                   type="tel"
                   name="phone"
                   class="form-control"
-                  placeholder="+880 1XXX XXXXXX"
+                  placeholder="+৮৮০ ১XXX XXXXXX"
                   required />
               </div>
               <div class="col-12">
-                <label class="form-label">Email Address *</label>
+                <label class="form-label">ইমেইল ঠিকানা *</label>
                 <input
                   type="email"
                   name="email"
@@ -246,24 +250,24 @@
               </div>
 
               <div class="col-md-6">
-                <label class="form-label">Subject *</label>
+                <label class="form-label">বিষয় *</label>
                 <select class="form-select" name="subject" required>
-                  <option value="">Select Subject</option>
-                  <option>Emergency Rescue Request</option>
-                  <option>General Inquiry</option>
-                  <option>Join as Rescuer</option>
-                  <option>Partnership</option>
-                  <option>Training Program</option>
-                  <option>Other</option>
+                  <option value="">বিষয় নির্বাচন করুন</option>
+                  <option>জরুরি রেসকিউ অনুরোধ</option>
+                  <option>সাধারণ জিজ্ঞাসা</option>
+                  <option>রেসকিউয়ার হিসেবে যোগদান</option>
+                  <option>পার্টনারশিপ/স্পন্সরশিপ</option>
+                  <option>প্রশিক্ষণ কর্মসূচি</option>
+                  <option>অন্যান্য</option>
                 </select>
               </div>
               <div class="col-12">
-                <label class="form-label">Message *</label>
+                <label class="form-label">বার্তা *</label>
                 <textarea
                   class="form-control"
                   name="message"
                   rows="5"
-                  placeholder="Tell us how we can help you..."
+                  placeholder="আমরা কীভাবে আপনাকে সাহায্য করতে পারি তা বলুন..."
                   required></textarea>
               </div>
               <div class="col-12">
@@ -274,14 +278,14 @@
                     id="agreeTerms"
                     required />
                   <label class="form-check-label small" for="agreeTerms">
-                    I agree to the terms and privacy policy
+                    আমি শর্তাবলী এবং গোপনীয়তা নীতিতে সম্মত
                   </label>
                 </div>
               </div>
               <div class="col-12">
                 <div id="formMessage" style="display: none;" class="alert"></div>
                 <button type="submit" class="btn btn-success btn-lg w-100">
-                  <i class="bi bi-send-fill me-2"></i>Send Message
+                  <i class="bi bi-send-fill me-2"></i>বার্তা পাঠান
                 </button>
               </div>
             </div>
@@ -291,6 +295,7 @@
     </div>
   </section>
 
+  <!-- section  -->
   <section class="py-5 bg-success text-white">
     <div class="container">
       <div class="row text-center g-4">
@@ -365,6 +370,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Log in  -->
   <div
     class="modal fade"
     id="loginModal"
@@ -393,7 +399,7 @@
                 id="loginIdentifier"
                 name="email"
                 class="form-control"
-                placeholder="Enter email"
+                placeholder="Enter email address"
                 required />
             </div>
 
@@ -442,63 +448,67 @@
     });
 
     // --- CONTACT FORM LOGIC (FIXED) ---
+
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const form = this;
-      const formData = new FormData(form);
-      const submitButton = form.querySelector('button[type="submit"]');
-      const messageDiv = document.getElementById('formMessage');
-      const agreeTerms = document.getElementById('agreeTerms');
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const formMessage = document.getElementById('formMessage');
+      const originalBtnText = submitBtn.innerHTML;
 
-      // --- Client-side Checkbox Validation ---
-      if (!agreeTerms.checked) {
-        messageDiv.style.display = 'block';
-        messageDiv.className = 'alert alert-danger';
-        messageDiv.textContent = 'You must agree to the terms and privacy policy.';
-        return; // Stop submission
-      }
+      // Button disable করুন
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>পাঠানো হচ্ছে...';
 
-      // Reset previous message
-      messageDiv.style.display = 'none';
-      messageDiv.textContent = '';
-      messageDiv.className = 'alert';
-
-      // Disable button and show loading
-      submitButton.disabled = true;
-      submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+      const formData = new FormData(this);
 
       try {
-        // Fetch to the PHP handler file
-        const response = await fetch('submit_contact.php', { // Ensure this filename matches your PHP script
+        const response = await fetch('submit_contact.php', {
           method: 'POST',
           body: formData
         });
 
-        // Check for JSON header before attempting to parse JSON
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-          throw new Error("Server did not return valid JSON. Check PHP script name and output.");
+        // Check if response is ok
+        if (!response.ok) {
+          throw new Error('HTTP error! status: ' + response.status);
         }
 
-        const result = await response.json();
+        // Get response text first to see what's coming
+        const responseText = await response.text();
+        console.log('Response:', responseText); // Debug করার জন্য
 
-        messageDiv.style.display = 'block';
-        messageDiv.className = 'alert ' + (result.success ? 'alert-success' : 'alert-danger');
-        messageDiv.textContent = result.message;
+        // Try to parse JSON
+        let result;
+        try {
+          result = JSON.parse(responseText);
+        } catch (e) {
+          console.error('JSON Parse Error:', e);
+          console.error('Response was:', responseText);
+          throw new Error('Invalid JSON response');
+        }
+
+        // Message দেখান
+        formMessage.style.display = 'block';
+        formMessage.className = 'alert ' + (result.success ? 'alert-success' : 'alert-danger');
+        formMessage.textContent = result.message;
 
         if (result.success) {
-          form.reset(); // Clear form on successful submission
+          // Form reset করুন
+          this.reset();
+
+          // 5 সেকেন্ড পর message লুকান
+          setTimeout(() => {
+            formMessage.style.display = 'none';
+          }, 5000);
         }
       } catch (error) {
-        console.error('Contact Form Submission Error:', error);
-        messageDiv.style.display = 'block';
-        messageDiv.className = 'alert alert-danger';
-        messageDiv.textContent = 'An error occurred. Please try again or check the console.';
+        formMessage.style.display = 'block';
+        formMessage.className = 'alert alert-danger';
+        formMessage.textContent = '❌ বার্তা পাঠাতে সমস্যা হয়েছে। আবার চেষ্টা করুন। Error: ' + error.message;
+        console.error('Full Error:', error);
       } finally {
-        // Re-enable button
-        submitButton.disabled = false;
-        submitButton.innerHTML = '<i class="bi bi-send-fill me-2"></i>Send Message';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
       }
     });
   </script>

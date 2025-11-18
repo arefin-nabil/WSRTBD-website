@@ -50,7 +50,7 @@
 
     .hero-about {
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("https://files.binarybardbd.com/Snakesbd/imgs/mid/2_GreenCatsnake1.jpg");
+        url("https://files.binarybardbd.com/Snakesbd/imgs/mid/2_GreenCatsnake3.jpg");
       background-size: cover;
       background-position: center;
       padding: 120px 0;
@@ -355,7 +355,7 @@
                 id="loginIdentifier"
                 name="email"
                 class="form-control"
-                placeholder="Enter email or phone"
+                placeholder="Enter email address"
                 required />
             </div>
 

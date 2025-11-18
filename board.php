@@ -261,7 +261,7 @@ include "db.php";
                 id="loginIdentifier"
                 name="email"
                 class="form-control"
-                placeholder="Enter email or phone"
+                placeholder="Enter email address"
                 required />
             </div>
 
